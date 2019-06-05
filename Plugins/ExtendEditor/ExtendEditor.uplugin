@@ -1,0 +1,23 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "ExtendEditor",
+	"Description": "",
+	"Category": "Other",
+	"CreatedBy": "CrazyLin",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "ExtendEditor",
+			"Type": "Editor",
+			"LoadingPhase": "Default"
+		}
+	]
+}
