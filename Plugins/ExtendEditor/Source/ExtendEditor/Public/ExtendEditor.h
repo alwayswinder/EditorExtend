@@ -9,6 +9,9 @@ class FToolBarBuilder;
 class FMenuBuilder;
 class FMenuBarBuilder;
 class SWidget;
+class FExtender;
+class FUICommandList;
+class AActor;
 
 class FExtendEditorModule : public IModuleInterface
 {
@@ -30,8 +33,12 @@ private:
 	void PullDownBar(FMenuBuilder& Builder);
 	void PullDownSuBar(FMenuBuilder& Builder);
 
+	TSharedRef<FExtender> SelectedCurrentActors(const TSharedRef<FUICommandList> MyCommandList, const TArray<AActor*> AlActor);
+
+	void AddSelectActorButton(FMenuBuilder& Builder);
 private:
 	TSharedPtr<class FUICommandList> PluginCommands;
+	FDelegateHandle LevelViewportMenuExtender_SelectedActors;
 };
 
 

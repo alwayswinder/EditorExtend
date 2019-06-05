@@ -51,6 +51,12 @@ void FExtendEditorModule::StartupModule()
 		
 		LevelEditorModule.GetToolBarExtensibilityManager()->AddExtender(ToolbarExtender);
 	}
+
+	{
+		auto& MenuButtonArray = LevelEditorModule.GetAllLevelViewportContextMenuExtenders();
+		MenuButtonArray.Add(FLevelEditorModule::FLevelViewportMenuExtender_SelectedActors::CreateRaw(this, &FExtendEditorModule::SelectedCurrentActors));
+		LevelViewportMenuExtender_SelectedActors = MenuButtonArray.Last().GetHandle();
+	}
 }
 
 void FExtendEditorModule::ShutdownModule()
@@ -130,6 +136,36 @@ void FExtendEditorModule::PullDownSuBar(FMenuBuilder& Builder)
 	);
 }
 
+TSharedRef<FExtender> FExtendEditorModule::SelectedCurrentActors(const TSharedRef<FUICommandList> MyCommandList, const TArray<AActor*> AlActor)
+{
+	TSharedRef<FExtender> Extender = MakeShareable(new FExtender);
+
+	if (AlActor.Num() > 0)
+	{
+		if (GEngine)
+		{
+			FString PrintTest = FString::Printf(TEXT("Actor number = %d"), AlActor.Num());
+
+			GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Yellow, PrintTest);
+		}
+
+		FLevelEditorModule& LevelEditorModule = FModuleManager::LoadModuleChecked<FLevelEditorModule>("LevelEditor");
+		TSharedRef<FUICommandList> LevelCommand = LevelEditorModule.GetGlobalLevelEditorActions();
+
+ 		Extender->AddMenuExtension("ActorControl", EExtensionHook::After, LevelCommand, FMenuExtensionDelegate::CreateRaw(this, &FExtendEditorModule::AddSelectActorButton));
+	}
+	return Extender;
+}
+
+void FExtendEditorModule::AddSelectActorButton(FMenuBuilder& Builder)
+{
+	Builder.BeginSection(TEXT("Extend"));
+	{
+		Builder.AddMenuEntry(FExtendEditorCommands::Get().PluginAction);
+	}
+	Builder.EndSection();
+}
+
 void FExtendEditorModule::AddToolbarExtension(FToolBarBuilder& Builder)
 {
 	Builder.AddToolBarButton(FExtendEditorCommands::Get().PluginAction);
@@ -137,6 +173,7 @@ void FExtendEditorModule::AddToolbarExtension(FToolBarBuilder& Builder)
 	Builder.BeginSection("HI");
 	Builder.BeginBlockGroup();
 	{
+		/*
 		Builder.AddToolBarButton(
 			FExtendEditorCommands::Get().PluginAction,
 			NAME_None,
@@ -144,6 +181,13 @@ void FExtendEditorModule::AddToolbarExtension(FToolBarBuilder& Builder)
 			TAttribute<FText>(),
 			TAttribute<FSlateIcon>(),
 			TEXT("EditorExtendTest")
+		);*/
+		Builder.AddComboButton(
+			FUIAction(),
+			FOnGetContent::CreateStatic<TSharedPtr<FUICommandList>>(&FTaskABC::MakeWidget, PluginCommands),
+			LOCTEXT("LIST", "list Test"),
+			LOCTEXT("LIST", "list Test"),
+			FSlateIcon()
 		);
 	}
 	Builder.EndBlockGroup();

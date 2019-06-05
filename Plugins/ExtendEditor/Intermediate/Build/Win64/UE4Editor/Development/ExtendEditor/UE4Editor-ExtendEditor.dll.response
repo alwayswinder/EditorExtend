@@ -32,6 +32,7 @@
 /NODEFAULTLIB:"LIBCPD"
 "F:\selfSpace\UEProje\EditExtend01\Intermediate\Build\Win64\EditExtend01Editor\Development\UnrealEd\SharedPCH.UnrealEd.h.obj"
 "F:\selfSpace\UEProje\EditExtend01\Plugins\ExtendEditor\Intermediate\Build\Win64\UE4Editor\Development\ExtendEditor\Module.ExtendEditor.cpp.obj"
+"F:\selfSpace\UEProje\EditExtend01\Plugins\ExtendEditor\Intermediate\Build\Win64\UE4Editor\Development\ExtendEditor\ExtendEditor.cpp.obj"
 "F:\selfSpace\UEProje\EditExtend01\Plugins\ExtendEditor\Intermediate\Build\Win64\UE4Editor\Development\ExtendEditor\PCLaunch.rc.res"
 "delayimp.lib"
 "wininet.lib"
