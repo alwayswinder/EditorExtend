@@ -133,6 +133,21 @@ void FExtendEditorModule::PullDownSuBar(FMenuBuilder& Builder)
 void FExtendEditorModule::AddToolbarExtension(FToolBarBuilder& Builder)
 {
 	Builder.AddToolBarButton(FExtendEditorCommands::Get().PluginAction);
+	
+	Builder.BeginSection("HI");
+	Builder.BeginBlockGroup();
+	{
+		Builder.AddToolBarButton(
+			FExtendEditorCommands::Get().PluginAction,
+			NAME_None,
+			TAttribute<FText>(),
+			TAttribute<FText>(),
+			TAttribute<FSlateIcon>(),
+			TEXT("EditorExtendTest")
+		);
+	}
+	Builder.EndBlockGroup();
+	Builder.EndSection();
 }
 
 

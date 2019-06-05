@@ -7,6 +7,8 @@
 
 class FToolBarBuilder;
 class FMenuBuilder;
+class FMenuBarBuilder;
+class SWidget;
 
 class FExtendEditorModule : public IModuleInterface
 {
@@ -24,6 +26,7 @@ private:
 	void AddToolbarExtension(FToolBarBuilder& Builder);
 	void AddMenuExtension(FMenuBuilder& Builder);
 	void AddMenuBarExtension(FMenuBarBuilder& Builder);
+
 	void PullDownBar(FMenuBuilder& Builder);
 	void PullDownSuBar(FMenuBuilder& Builder);
 
