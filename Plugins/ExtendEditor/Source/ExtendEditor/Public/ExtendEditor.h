@@ -36,6 +36,9 @@ private:
 	TSharedRef<FExtender> SelectedCurrentActors(const TSharedRef<FUICommandList> MyCommandList, const TArray<AActor*> AlActor);
 
 	void AddSelectActorButton(FMenuBuilder& Builder);
+	
+	TSharedRef<FExtender> GetPathsFromEditor(const TArray<FString>& NewPaths);
+
 private:
 	TSharedPtr<class FUICommandList> PluginCommands;
 	FDelegateHandle LevelViewportMenuExtender_SelectedActors;

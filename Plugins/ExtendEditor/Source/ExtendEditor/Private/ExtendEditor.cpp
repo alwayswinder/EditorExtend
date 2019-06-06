@@ -5,7 +5,7 @@
 #include "ExtendEditorCommands.h"
 #include "Misc/MessageDialog.h"
 #include "Framework/MultiBox/MultiBoxBuilder.h"
-
+#include "ContentBrowserModule.h"
 #include "LevelEditor.h"
 #include "SImage.h"
 
@@ -56,6 +56,13 @@ void FExtendEditorModule::StartupModule()
 		auto& MenuButtonArray = LevelEditorModule.GetAllLevelViewportContextMenuExtenders();
 		MenuButtonArray.Add(FLevelEditorModule::FLevelViewportMenuExtender_SelectedActors::CreateRaw(this, &FExtendEditorModule::SelectedCurrentActors));
 		LevelViewportMenuExtender_SelectedActors = MenuButtonArray.Last().GetHandle();
+	}
+	{
+		FContentBrowserModule& ContentBrowserModule = FModuleManager::LoadModuleChecked<FContentBrowserModule>("ContentBrowser");
+		auto& MenuButtonArray = ContentBrowserModule.GetAllPathViewContextMenuExtenders();
+
+		MenuButtonArray.Add(FContentBrowserMenuExtender_SelectedPaths::CreateRaw(this, &FExtendEditorModule::GetPathsFromEditor));
+
 	}
 }
 
@@ -164,6 +171,34 @@ void FExtendEditorModule::AddSelectActorButton(FMenuBuilder& Builder)
 		Builder.AddMenuEntry(FExtendEditorCommands::Get().PluginAction);
 	}
 	Builder.EndSection();
+}
+
+TSharedRef<FExtender> FExtendEditorModule::GetPathsFromEditor(const TArray<FString>& NewPaths)
+{
+	TSharedRef<FExtender> Extender = MakeShareable(new FExtender);
+
+	if (NewPaths.Num() > 0)
+	{
+		if (GEngine)
+		{
+			FString PrintTest = FString::Printf(TEXT("Actor number = %d"), NewPaths.Num());
+
+			GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Yellow, PrintTest);
+		}
+
+		FContentBrowserModule& LevelEditorModule = FModuleManager::LoadModuleChecked<FContentBrowserModule>("ContentBrowser");
+
+		Extender->AddMenuExtension("PathViewFolderOptions", EExtensionHook::After, PluginCommands, 
+			FMenuExtensionDelegate::CreateRaw(this, &FExtendEditorModule::AddSelectActorButton));
+		for (auto tmp : NewPaths)
+		{
+			if (GEngine)
+			{
+				GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Yellow, tmp);
+			}
+		}
+	}
+	return Extender;
 }
 
 void FExtendEditorModule::AddToolbarExtension(FToolBarBuilder& Builder)
