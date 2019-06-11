@@ -2,6 +2,6 @@
 	"BuildId": "4541578",
 	"Modules": 
 	{
-		"ExtendEditor": "UE4Editor-ExtendEditor-9864.dll"
+		"ExtendEditor": "UE4Editor-ExtendEditor.dll"
 	}
 }

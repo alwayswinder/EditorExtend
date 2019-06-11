@@ -413,6 +413,7 @@
 /I ThirdParty
 /I ThirdParty\libSampleRate\Public
 /I ThirdParty\libSampleRate
+/I F:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Inc\DetailsTest
 /I F:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Source
 /I F:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Source\DetailsTest\Public
 /I F:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Source\DetailsTest
@@ -422,11 +423,8 @@
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\shared"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\um"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\winrt"
-/FI"F:\selfSpace\UEProje\EditExtend01\Intermediate\Build\Win64\EditExtend01Editor\Development\Engine\SharedPCH.Engine.h"
-/Yu"F:\selfSpace\UEProje\EditExtend01\Intermediate\Build\Win64\EditExtend01Editor\Development\Engine\SharedPCH.Engine.h"
-/Fp"F:\selfSpace\UEProje\EditExtend01\Intermediate\Build\Win64\EditExtend01Editor\Development\Engine\SharedPCH.Engine.h.pch"
 "F:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Source\DetailsTest\Private\DetailsTest.cpp"
-/FI"F:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Development\DetailsTest\Definitions.DetailsTest.h"
+/FI"F:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Development\DetailsTest\Definitions.Adaptive.h"
 /Fo"F:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Development\DetailsTest\DetailsTest.cpp.obj"
 /TP
 /GR-

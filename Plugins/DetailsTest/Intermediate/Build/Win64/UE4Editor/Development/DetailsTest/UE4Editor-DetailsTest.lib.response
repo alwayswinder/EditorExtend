@@ -7,6 +7,11 @@
 /IGNORE:4221
 /NODEFAULTLIB
 "F:\selfSpace\UEProje\EditExtend01\Intermediate\Build\Win64\EditExtend01Editor\Development\Engine\SharedPCH.Engine.h.obj"
+"F:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Development\DetailsTest\Module.DetailsTest.cpp.obj"
+"F:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Development\DetailsTest\CustomWidget.cpp.obj"
 "F:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Development\DetailsTest\DetailsTest.cpp.obj"
+"F:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Development\DetailsTest\StructVariable.cpp.obj"
+"F:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Development\DetailsTest\StructVariableDetail.cpp.obj"
+"F:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Development\DetailsTest\Module.DetailsTest.gen.cpp.obj"
 "F:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Development\DetailsTest\PCLaunch.rc.res"
 /OUT:"F:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Development\DetailsTest\UE4Editor-DetailsTest.lib"
