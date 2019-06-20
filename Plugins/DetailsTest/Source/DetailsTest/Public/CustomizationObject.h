@@ -15,5 +15,14 @@ class DETAILSTEST_API UCustomizationObject : public UObject
 	GENERATED_BODY()
 public:
 	UPROPERTY(EditAnywhere, Category = "Hell")
-	FStructVariable Hle;
+	FStructVariable TestStruct;
+
+	UPROPERTY(EditAnywhere, Category = "Hell")
+	float TestFloat;
+
+	UPROPERTY(EditAnywhere, Category = "Hell")
+	FText TestText;
+
+	UPROPERTY(EditAnywhere, Category = "Hell")
+	TArray<int32> TestArrayInt32;
 };

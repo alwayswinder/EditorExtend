@@ -33,9 +33,22 @@ void EmptyLinkFunctionForGeneratedCodeCustomizationObject() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Hle_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TestArrayInt32_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FStructPropertyParams NewProp_Hle;
+		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_TestArrayInt32;
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_TestArrayInt32_Inner;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TestText_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FTextPropertyParams NewProp_TestText;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TestFloat_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_TestFloat;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TestStruct_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_TestStruct;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -53,14 +66,40 @@ void EmptyLinkFunctionForGeneratedCodeCustomizationObject() {}
 	};
 #endif
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCustomizationObject_Statics::NewProp_Hle_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCustomizationObject_Statics::NewProp_TestArrayInt32_MetaData[] = {
 		{ "Category", "Hell" },
 		{ "ModuleRelativePath", "Public/CustomizationObject.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_UCustomizationObject_Statics::NewProp_Hle = { UE4CodeGen_Private::EPropertyClass::Struct, "Hle", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000001, 1, nullptr, STRUCT_OFFSET(UCustomizationObject, Hle), Z_Construct_UScriptStruct_FStructVariable, METADATA_PARAMS(Z_Construct_UClass_UCustomizationObject_Statics::NewProp_Hle_MetaData, ARRAY_COUNT(Z_Construct_UClass_UCustomizationObject_Statics::NewProp_Hle_MetaData)) };
+	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UCustomizationObject_Statics::NewProp_TestArrayInt32 = { UE4CodeGen_Private::EPropertyClass::Array, "TestArrayInt32", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000001, 1, nullptr, STRUCT_OFFSET(UCustomizationObject, TestArrayInt32), METADATA_PARAMS(Z_Construct_UClass_UCustomizationObject_Statics::NewProp_TestArrayInt32_MetaData, ARRAY_COUNT(Z_Construct_UClass_UCustomizationObject_Statics::NewProp_TestArrayInt32_MetaData)) };
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_UCustomizationObject_Statics::NewProp_TestArrayInt32_Inner = { UE4CodeGen_Private::EPropertyClass::Int, "TestArrayInt32", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0000000000000000, 1, nullptr, 0, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCustomizationObject_Statics::NewProp_TestText_MetaData[] = {
+		{ "Category", "Hell" },
+		{ "ModuleRelativePath", "Public/CustomizationObject.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FTextPropertyParams Z_Construct_UClass_UCustomizationObject_Statics::NewProp_TestText = { UE4CodeGen_Private::EPropertyClass::Text, "TestText", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000001, 1, nullptr, STRUCT_OFFSET(UCustomizationObject, TestText), METADATA_PARAMS(Z_Construct_UClass_UCustomizationObject_Statics::NewProp_TestText_MetaData, ARRAY_COUNT(Z_Construct_UClass_UCustomizationObject_Statics::NewProp_TestText_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCustomizationObject_Statics::NewProp_TestFloat_MetaData[] = {
+		{ "Category", "Hell" },
+		{ "ModuleRelativePath", "Public/CustomizationObject.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UCustomizationObject_Statics::NewProp_TestFloat = { UE4CodeGen_Private::EPropertyClass::Float, "TestFloat", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000001, 1, nullptr, STRUCT_OFFSET(UCustomizationObject, TestFloat), METADATA_PARAMS(Z_Construct_UClass_UCustomizationObject_Statics::NewProp_TestFloat_MetaData, ARRAY_COUNT(Z_Construct_UClass_UCustomizationObject_Statics::NewProp_TestFloat_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCustomizationObject_Statics::NewProp_TestStruct_MetaData[] = {
+		{ "Category", "Hell" },
+		{ "ModuleRelativePath", "Public/CustomizationObject.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_UCustomizationObject_Statics::NewProp_TestStruct = { UE4CodeGen_Private::EPropertyClass::Struct, "TestStruct", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000001, 1, nullptr, STRUCT_OFFSET(UCustomizationObject, TestStruct), Z_Construct_UScriptStruct_FStructVariable, METADATA_PARAMS(Z_Construct_UClass_UCustomizationObject_Statics::NewProp_TestStruct_MetaData, ARRAY_COUNT(Z_Construct_UClass_UCustomizationObject_Statics::NewProp_TestStruct_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UCustomizationObject_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCustomizationObject_Statics::NewProp_Hle,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCustomizationObject_Statics::NewProp_TestArrayInt32,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCustomizationObject_Statics::NewProp_TestArrayInt32_Inner,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCustomizationObject_Statics::NewProp_TestText,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCustomizationObject_Statics::NewProp_TestFloat,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCustomizationObject_Statics::NewProp_TestStruct,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UCustomizationObject_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UCustomizationObject>::IsAbstract,
@@ -85,7 +124,7 @@ void EmptyLinkFunctionForGeneratedCodeCustomizationObject() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UCustomizationObject, 1423715748);
+	IMPLEMENT_CLASS(UCustomizationObject, 1966871020);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_UCustomizationObject(Z_Construct_UClass_UCustomizationObject, &UCustomizationObject::StaticClass, TEXT("/Script/DetailsTest"), TEXT("UCustomizationObject"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UCustomizationObject);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

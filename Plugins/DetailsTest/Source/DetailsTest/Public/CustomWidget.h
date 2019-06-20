@@ -1,13 +1,24 @@
-#include "SCompoundWidget.h"
+#pragma once
 
-class SCustomWidget : public SCompoundWidget
+#include "CoreMinimal.h"
+#include "Widgets/DeclarativeSyntaxSupport.h"
+#include "Widgets/SCompoundWidget.h"
+#include "IDetailsView.h"
+
+
+class SCustomWidget : public SCompoundWidget 
 {
-public:/*
+public:
 
-	SLATE_BEGIN_ARGS(SCustomWidget){}
-	SLATE_END_ARGS();
+	SLATE_BEGIN_ARGS(SCustomWidget)  {}
+
+	SLATE_ATTRIBUTE(class UCustomizationObject*, CustomizeObject)
+
+	SLATE_END_ARGS()
 
 	void Construct(const FArguments& InArgs);
 
-	TSharedPtr<IDetailsView> ConfigPanel;*/
+	TSharedPtr<IDetailsView> ConfigPanel;
+
+	class UCustomizationObject *CustomizeObject;
 };
