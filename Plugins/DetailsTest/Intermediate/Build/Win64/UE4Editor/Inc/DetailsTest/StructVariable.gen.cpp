@@ -1,4 +1,4 @@
-// Copyright 1998-2018 Epic Games, Inc. All Rights Reserved.
+// Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
 /*===========================================================================
 	Generated code exported from UnrealHeaderTool.
 	DO NOT modify this manually! Edit the corresponding .h files instead!
@@ -21,10 +21,14 @@ class UScriptStruct* FStructVariable::StaticStruct()
 	static class UScriptStruct* Singleton = NULL;
 	if (!Singleton)
 	{
-		extern DETAILSTEST_API uint32 Get_Z_Construct_UScriptStruct_FStructVariable_CRC();
-		Singleton = GetStaticStruct(Z_Construct_UScriptStruct_FStructVariable, Z_Construct_UPackage__Script_DetailsTest(), TEXT("StructVariable"), sizeof(FStructVariable), Get_Z_Construct_UScriptStruct_FStructVariable_CRC());
+		extern DETAILSTEST_API uint32 Get_Z_Construct_UScriptStruct_FStructVariable_Hash();
+		Singleton = GetStaticStruct(Z_Construct_UScriptStruct_FStructVariable, Z_Construct_UPackage__Script_DetailsTest(), TEXT("StructVariable"), sizeof(FStructVariable), Get_Z_Construct_UScriptStruct_FStructVariable_Hash());
 	}
 	return Singleton;
+}
+template<> DETAILSTEST_API UScriptStruct* StaticStruct<FStructVariable>()
+{
+	return FStructVariable::StaticStruct();
 }
 static FCompiledInDeferStruct Z_CompiledInDeferStruct_UScriptStruct_FStructVariable(FStructVariable::StaticStruct, TEXT("/Script/DetailsTest"), TEXT("StructVariable"), false, nullptr, nullptr);
 static struct FScriptStruct_DetailsTest_StaticRegisterNativesFStructVariable
@@ -63,7 +67,7 @@ static struct FScriptStruct_DetailsTest_StaticRegisterNativesFStructVariable
 		{ "ModuleRelativePath", "Public/StructVariable.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FStructVariable_Statics::NewProp_Testvalue = { UE4CodeGen_Private::EPropertyClass::Int, "Testvalue", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000001, 1, nullptr, STRUCT_OFFSET(FStructVariable, Testvalue), METADATA_PARAMS(Z_Construct_UScriptStruct_FStructVariable_Statics::NewProp_Testvalue_MetaData, ARRAY_COUNT(Z_Construct_UScriptStruct_FStructVariable_Statics::NewProp_Testvalue_MetaData)) };
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FStructVariable_Statics::NewProp_Testvalue = { "Testvalue", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FStructVariable, Testvalue), METADATA_PARAMS(Z_Construct_UScriptStruct_FStructVariable_Statics::NewProp_Testvalue_MetaData, ARRAY_COUNT(Z_Construct_UScriptStruct_FStructVariable_Statics::NewProp_Testvalue_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FStructVariable_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FStructVariable_Statics::NewProp_Testvalue,
 	};
@@ -72,19 +76,20 @@ static struct FScriptStruct_DetailsTest_StaticRegisterNativesFStructVariable
 		nullptr,
 		&NewStructOps,
 		"StructVariable",
-		RF_Public|RF_Transient|RF_MarkAsNative,
-		EStructFlags(0x00000001),
 		sizeof(FStructVariable),
 		alignof(FStructVariable),
-		Z_Construct_UScriptStruct_FStructVariable_Statics::PropPointers, ARRAY_COUNT(Z_Construct_UScriptStruct_FStructVariable_Statics::PropPointers),
+		Z_Construct_UScriptStruct_FStructVariable_Statics::PropPointers,
+		ARRAY_COUNT(Z_Construct_UScriptStruct_FStructVariable_Statics::PropPointers),
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		EStructFlags(0x00000001),
 		METADATA_PARAMS(Z_Construct_UScriptStruct_FStructVariable_Statics::Struct_MetaDataParams, ARRAY_COUNT(Z_Construct_UScriptStruct_FStructVariable_Statics::Struct_MetaDataParams))
 	};
 	UScriptStruct* Z_Construct_UScriptStruct_FStructVariable()
 	{
 #if WITH_HOT_RELOAD
-		extern uint32 Get_Z_Construct_UScriptStruct_FStructVariable_CRC();
+		extern uint32 Get_Z_Construct_UScriptStruct_FStructVariable_Hash();
 		UPackage* Outer = Z_Construct_UPackage__Script_DetailsTest();
-		static UScriptStruct* ReturnStruct = FindExistingStructIfHotReloadOrDynamic(Outer, TEXT("StructVariable"), sizeof(FStructVariable), Get_Z_Construct_UScriptStruct_FStructVariable_CRC(), false);
+		static UScriptStruct* ReturnStruct = FindExistingStructIfHotReloadOrDynamic(Outer, TEXT("StructVariable"), sizeof(FStructVariable), Get_Z_Construct_UScriptStruct_FStructVariable_Hash(), false);
 #else
 		static UScriptStruct* ReturnStruct = nullptr;
 #endif
@@ -94,7 +99,7 @@ static struct FScriptStruct_DetailsTest_StaticRegisterNativesFStructVariable
 		}
 		return ReturnStruct;
 	}
-	uint32 Get_Z_Construct_UScriptStruct_FStructVariable_CRC() { return 2654247390U; }
+	uint32 Get_Z_Construct_UScriptStruct_FStructVariable_Hash() { return 2163158830U; }
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 #ifdef _MSC_VER
 #pragma warning (pop)

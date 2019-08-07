@@ -1,0 +1,14 @@
+D:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Development\DetailsTest\Definitions.DetailsTest.h
+D:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Inc\DetailsTest\CustomizationObject.gen.cpp
+D:\selfSpace\UE4Code\UnrealEngine-4.22\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+D:\selfSpace\UE4Code\UnrealEngine-4.22\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
+D:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Source\DetailsTest/Public/CustomizationObject.h
+D:\selfSpace\UE4Code\UnrealEngine-4.22\Engine\Source\Runtime\CoreUObject\Public\UObject/NoExportTypes.h
+D:\selfSpace\UE4Code\UnrealEngine-4.22\Engine\Source\Runtime\Core\Public\Math/UnitConversion.h
+D:\selfSpace\UE4Code\UnrealEngine-4.22\Engine\Source\Runtime\Core\Public\Math/UnitConversion.inl
+D:\selfSpace\UE4Code\UnrealEngine-4.22\Engine\Source\Runtime\Core\Public\Internationalization/PolyglotTextData.h
+d:\selfspace\ueproje\editextend01\plugins\detailstest\source\detailstest\public\StructVariable.h
+d:\selfspace\ueproje\editextend01\plugins\detailstest\intermediate\build\win64\ue4editor\inc\detailstest\StructVariable.generated.h
+d:\selfspace\ueproje\editextend01\plugins\detailstest\intermediate\build\win64\ue4editor\inc\detailstest\CustomizationObject.generated.h
+D:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Inc\DetailsTest\DetailsTest.init.gen.cpp
+D:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Inc\DetailsTest\StructVariable.gen.cpp

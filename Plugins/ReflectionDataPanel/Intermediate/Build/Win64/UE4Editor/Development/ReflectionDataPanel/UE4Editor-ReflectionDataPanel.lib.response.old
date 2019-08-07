@@ -1,0 +1,12 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-ReflectionDataPanel.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"F:\selfSpace\UEProje\EditExtend01\Intermediate\Build\Win64\EditExtend01Editor\Development\UnrealEd\SharedPCH.UnrealEd.h.obj"
+"F:\selfSpace\UEProje\EditExtend01\Plugins\ReflectionDataPanel\Intermediate\Build\Win64\UE4Editor\Development\ReflectionDataPanel\Module.ReflectionDataPanel.cpp.obj"
+"F:\selfSpace\UEProje\EditExtend01\Plugins\ReflectionDataPanel\Intermediate\Build\Win64\UE4Editor\Development\ReflectionDataPanel\PCLaunch.rc.res"
+/OUT:"F:\selfSpace\UEProje\EditExtend01\Plugins\ReflectionDataPanel\Intermediate\Build\Win64\UE4Editor\Development\ReflectionDataPanel\UE4Editor-ReflectionDataPanel.lib"

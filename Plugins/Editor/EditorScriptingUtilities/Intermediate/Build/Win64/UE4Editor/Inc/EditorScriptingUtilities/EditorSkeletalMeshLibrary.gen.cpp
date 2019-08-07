@@ -1,4 +1,4 @@
-// Copyright 1998-2018 Epic Games, Inc. All Rights Reserved.
+// Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
 /*===========================================================================
 	Generated code exported from UnrealHeaderTool.
 	DO NOT modify this manually! Edit the corresponding .h files instead!
@@ -53,14 +53,14 @@ void EmptyLinkFunctionForGeneratedCodeEditorSkeletalMeshLibrary() {}
 	{
 		((EditorSkeletalMeshLibrary_eventRegenerateLOD_Parms*)Obj)->ReturnValue = 1;
 	}
-	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UEditorSkeletalMeshLibrary_RegenerateLOD_Statics::NewProp_ReturnValue = { UE4CodeGen_Private::EPropertyClass::Bool, "ReturnValue", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000580, 1, nullptr, sizeof(bool), UE4CodeGen_Private::ENativeBool::Native, sizeof(EditorSkeletalMeshLibrary_eventRegenerateLOD_Parms), &Z_Construct_UFunction_UEditorSkeletalMeshLibrary_RegenerateLOD_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UEditorSkeletalMeshLibrary_RegenerateLOD_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(EditorSkeletalMeshLibrary_eventRegenerateLOD_Parms), &Z_Construct_UFunction_UEditorSkeletalMeshLibrary_RegenerateLOD_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(nullptr, 0) };
 	void Z_Construct_UFunction_UEditorSkeletalMeshLibrary_RegenerateLOD_Statics::NewProp_bRegenerateEvenIfImported_SetBit(void* Obj)
 	{
 		((EditorSkeletalMeshLibrary_eventRegenerateLOD_Parms*)Obj)->bRegenerateEvenIfImported = 1;
 	}
-	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UEditorSkeletalMeshLibrary_RegenerateLOD_Statics::NewProp_bRegenerateEvenIfImported = { UE4CodeGen_Private::EPropertyClass::Bool, "bRegenerateEvenIfImported", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000080, 1, nullptr, sizeof(bool), UE4CodeGen_Private::ENativeBool::Native, sizeof(EditorSkeletalMeshLibrary_eventRegenerateLOD_Parms), &Z_Construct_UFunction_UEditorSkeletalMeshLibrary_RegenerateLOD_Statics::NewProp_bRegenerateEvenIfImported_SetBit, METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UEditorSkeletalMeshLibrary_RegenerateLOD_Statics::NewProp_NewLODCount = { UE4CodeGen_Private::EPropertyClass::Int, "NewLODCount", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000080, 1, nullptr, STRUCT_OFFSET(EditorSkeletalMeshLibrary_eventRegenerateLOD_Parms, NewLODCount), METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UEditorSkeletalMeshLibrary_RegenerateLOD_Statics::NewProp_SkeletalMesh = { UE4CodeGen_Private::EPropertyClass::Object, "SkeletalMesh", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000080, 1, nullptr, STRUCT_OFFSET(EditorSkeletalMeshLibrary_eventRegenerateLOD_Parms, SkeletalMesh), Z_Construct_UClass_USkeletalMesh_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UEditorSkeletalMeshLibrary_RegenerateLOD_Statics::NewProp_bRegenerateEvenIfImported = { "bRegenerateEvenIfImported", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(EditorSkeletalMeshLibrary_eventRegenerateLOD_Parms), &Z_Construct_UFunction_UEditorSkeletalMeshLibrary_RegenerateLOD_Statics::NewProp_bRegenerateEvenIfImported_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UEditorSkeletalMeshLibrary_RegenerateLOD_Statics::NewProp_NewLODCount = { "NewLODCount", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(EditorSkeletalMeshLibrary_eventRegenerateLOD_Parms, NewLODCount), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UEditorSkeletalMeshLibrary_RegenerateLOD_Statics::NewProp_SkeletalMesh = { "SkeletalMesh", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(EditorSkeletalMeshLibrary_eventRegenerateLOD_Parms, SkeletalMesh), Z_Construct_UClass_USkeletalMesh_NoRegister, METADATA_PARAMS(nullptr, 0) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UEditorSkeletalMeshLibrary_RegenerateLOD_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UEditorSkeletalMeshLibrary_RegenerateLOD_Statics::NewProp_ReturnValue,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UEditorSkeletalMeshLibrary_RegenerateLOD_Statics::NewProp_bRegenerateEvenIfImported,
@@ -76,7 +76,7 @@ void EmptyLinkFunctionForGeneratedCodeEditorSkeletalMeshLibrary() {}
 		{ "ToolTip", "Regenerate LODs of the mesh\n\n@param SkeletalMesh  The mesh that will regenerate LOD\n@param NewLODCount   Set valid value (>0) if you want to change LOD count.\n                                            Otherwise, it will use the current LOD and regenerate\n@param bRegenerateEvenIfImported     If this is true, it only regenerate even if this LOD was imported before\n                                                                    If false, it will regenerate for only previously auto generated ones\n@return      true if succeed. If mesh reduction is not available this will return false." },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UEditorSkeletalMeshLibrary_RegenerateLOD_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UEditorSkeletalMeshLibrary, "RegenerateLOD", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x04022401, sizeof(EditorSkeletalMeshLibrary_eventRegenerateLOD_Parms), Z_Construct_UFunction_UEditorSkeletalMeshLibrary_RegenerateLOD_Statics::PropPointers, ARRAY_COUNT(Z_Construct_UFunction_UEditorSkeletalMeshLibrary_RegenerateLOD_Statics::PropPointers), 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UEditorSkeletalMeshLibrary_RegenerateLOD_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_UEditorSkeletalMeshLibrary_RegenerateLOD_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UEditorSkeletalMeshLibrary_RegenerateLOD_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UEditorSkeletalMeshLibrary, nullptr, "RegenerateLOD", sizeof(EditorSkeletalMeshLibrary_eventRegenerateLOD_Parms), Z_Construct_UFunction_UEditorSkeletalMeshLibrary_RegenerateLOD_Statics::PropPointers, ARRAY_COUNT(Z_Construct_UFunction_UEditorSkeletalMeshLibrary_RegenerateLOD_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04022401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UEditorSkeletalMeshLibrary_RegenerateLOD_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_UEditorSkeletalMeshLibrary_RegenerateLOD_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_UEditorSkeletalMeshLibrary_RegenerateLOD()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -105,7 +105,7 @@ void EmptyLinkFunctionForGeneratedCodeEditorSkeletalMeshLibrary() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_EditorScriptingUtilities,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UEditorSkeletalMeshLibrary_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UEditorSkeletalMeshLibrary_RegenerateLOD, "RegenerateLOD" }, // 2684561863
+		{ &Z_Construct_UFunction_UEditorSkeletalMeshLibrary_RegenerateLOD, "RegenerateLOD" }, // 22563276
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UEditorSkeletalMeshLibrary_Statics::Class_MetaDataParams[] = {
@@ -119,13 +119,17 @@ void EmptyLinkFunctionForGeneratedCodeEditorSkeletalMeshLibrary() {}
 	};
 	const UE4CodeGen_Private::FClassParams Z_Construct_UClass_UEditorSkeletalMeshLibrary_Statics::ClassParams = {
 		&UEditorSkeletalMeshLibrary::StaticClass,
-		DependentSingletons, ARRAY_COUNT(DependentSingletons),
-		0x001000A0u,
-		FuncInfo, ARRAY_COUNT(FuncInfo),
-		nullptr, 0,
 		nullptr,
 		&StaticCppClassTypeInfo,
-		nullptr, 0,
+		DependentSingletons,
+		FuncInfo,
+		nullptr,
+		nullptr,
+		ARRAY_COUNT(DependentSingletons),
+		ARRAY_COUNT(FuncInfo),
+		0,
+		0,
+		0x001000A0u,
 		METADATA_PARAMS(Z_Construct_UClass_UEditorSkeletalMeshLibrary_Statics::Class_MetaDataParams, ARRAY_COUNT(Z_Construct_UClass_UEditorSkeletalMeshLibrary_Statics::Class_MetaDataParams))
 	};
 	UClass* Z_Construct_UClass_UEditorSkeletalMeshLibrary()
@@ -137,7 +141,11 @@ void EmptyLinkFunctionForGeneratedCodeEditorSkeletalMeshLibrary() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UEditorSkeletalMeshLibrary, 2132626926);
+	IMPLEMENT_CLASS(UEditorSkeletalMeshLibrary, 989492226);
+	template<> EDITORSCRIPTINGUTILITIES_API UClass* StaticClass<UEditorSkeletalMeshLibrary>()
+	{
+		return UEditorSkeletalMeshLibrary::StaticClass();
+	}
 	static FCompiledInDefer Z_CompiledInDefer_UClass_UEditorSkeletalMeshLibrary(Z_Construct_UClass_UEditorSkeletalMeshLibrary, &UEditorSkeletalMeshLibrary::StaticClass, TEXT("/Script/EditorScriptingUtilities"), TEXT("UEditorSkeletalMeshLibrary"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UEditorSkeletalMeshLibrary);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

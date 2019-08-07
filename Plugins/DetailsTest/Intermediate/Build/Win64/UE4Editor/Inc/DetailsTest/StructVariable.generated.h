@@ -1,4 +1,4 @@
-// Copyright 1998-2018 Epic Games, Inc. All Rights Reserved.
+// Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
 /*===========================================================================
 	Generated code exported from UnrealHeaderTool.
 	DO NOT modify this manually! Edit the corresponding .h files instead!
@@ -17,6 +17,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	friend struct Z_Construct_UScriptStruct_FStructVariable_Statics; \
 	DETAILSTEST_API static class UScriptStruct* StaticStruct();
 
+
+template<> DETAILSTEST_API UScriptStruct* StaticStruct<struct FStructVariable>();
 
 #undef CURRENT_FILE_ID
 #define CURRENT_FILE_ID EditExtend01_Plugins_DetailsTest_Source_DetailsTest_Public_StructVariable_h

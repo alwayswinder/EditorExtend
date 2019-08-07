@@ -9,7 +9,7 @@
 
 void SCustomWidget::Construct(const FArguments& InArgs)
 {
-	CustomizeObject = InArgs._CustomizeObject;
+	//CustomizeObject = InArgs._CustomizeObject;
 	
 	FPropertyEditorModule& PropertyModule = FModuleManager::LoadModuleChecked<FPropertyEditorModule>("PropertyEditor");
 	FDetailsViewArgs DetailsViewArgs;

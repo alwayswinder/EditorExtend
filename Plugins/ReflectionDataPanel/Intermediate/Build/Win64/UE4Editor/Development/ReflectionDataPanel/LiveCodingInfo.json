@@ -1,0 +1,10 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.ReflectionDataPanel.cpp.obj": [
+			"ReflectionDataPanel.cpp.obj",
+			"ReflectionDataPanelCommands.cpp.obj",
+			"ReflectionDataPanelStyle.cpp.obj"
+		]
+	}
+}

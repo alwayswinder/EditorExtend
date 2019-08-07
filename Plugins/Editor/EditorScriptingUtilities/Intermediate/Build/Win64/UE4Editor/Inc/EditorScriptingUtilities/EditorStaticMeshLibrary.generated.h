@@ -1,4 +1,4 @@
-// Copyright 1998-2018 Epic Games, Inc. All Rights Reserved.
+// Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
 /*===========================================================================
 	Generated code exported from UnrealHeaderTool.
 	DO NOT modify this manually! Edit the corresponding .h files instead!
@@ -25,10 +25,14 @@ struct FEditorScriptingMeshReductionOptions;
 	EDITORSCRIPTINGUTILITIES_API static class UScriptStruct* StaticStruct();
 
 
+template<> EDITORSCRIPTINGUTILITIES_API UScriptStruct* StaticStruct<struct FEditorScriptingMeshReductionOptions>();
+
 #define EditExtend01_Plugins_Editor_EditorScriptingUtilities_Source_EditorScriptingUtilities_Public_EditorStaticMeshLibrary_h_21_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FEditorScriptingMeshReductionSettings_Statics; \
 	EDITORSCRIPTINGUTILITIES_API static class UScriptStruct* StaticStruct();
 
+
+template<> EDITORSCRIPTINGUTILITIES_API UScriptStruct* StaticStruct<struct FEditorScriptingMeshReductionSettings>();
 
 #define EditExtend01_Plugins_Editor_EditorScriptingUtilities_Source_EditorScriptingUtilities_Public_EditorStaticMeshLibrary_h_77_RPC_WRAPPERS \
  \
@@ -722,6 +726,8 @@ private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
+template<> EDITORSCRIPTINGUTILITIES_API UClass* StaticClass<class UEditorStaticMeshLibrary>();
+
 #undef CURRENT_FILE_ID
 #define CURRENT_FILE_ID EditExtend01_Plugins_Editor_EditorScriptingUtilities_Source_EditorScriptingUtilities_Public_EditorStaticMeshLibrary_h
 
@@ -735,4 +741,8 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 	op(EScriptingCollisionShapeType::NDOP10_Z) \
 	op(EScriptingCollisionShapeType::NDOP18) \
 	op(EScriptingCollisionShapeType::NDOP26) 
+
+enum class EScriptingCollisionShapeType : uint8;
+template<> EDITORSCRIPTINGUTILITIES_API UEnum* StaticEnum<EScriptingCollisionShapeType>();
+
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

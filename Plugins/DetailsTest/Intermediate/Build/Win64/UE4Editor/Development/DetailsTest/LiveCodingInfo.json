@@ -1,0 +1,18 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.DetailsTest.cpp.obj": [
+			"CustomizationObject.cpp.obj",
+			"DetailsTest.cpp.obj",
+			"MyTestCustomization.cpp.obj",
+			"StructVariable.cpp.obj",
+			"StructVariableDetail.cpp.obj",
+			"CustomWidget.cpp.obj"
+		],
+		"Module.DetailsTest.gen.cpp.obj": [
+			"CustomizationObject.gen.cpp.obj",
+			"DetailsTest.init.gen.cpp.obj",
+			"StructVariable.gen.cpp.obj"
+		]
+	}
+}

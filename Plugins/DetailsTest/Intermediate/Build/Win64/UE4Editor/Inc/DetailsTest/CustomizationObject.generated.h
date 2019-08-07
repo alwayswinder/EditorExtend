@@ -1,4 +1,4 @@
-// Copyright 1998-2018 Epic Games, Inc. All Rights Reserved.
+// Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
 /*===========================================================================
 	Generated code exported from UnrealHeaderTool.
 	DO NOT modify this manually! Edit the corresponding .h files instead!
@@ -82,6 +82,8 @@ public: \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
+
+template<> DETAILSTEST_API UClass* StaticClass<class UCustomizationObject>();
 
 #undef CURRENT_FILE_ID
 #define CURRENT_FILE_ID EditExtend01_Plugins_DetailsTest_Source_DetailsTest_Public_CustomizationObject_h

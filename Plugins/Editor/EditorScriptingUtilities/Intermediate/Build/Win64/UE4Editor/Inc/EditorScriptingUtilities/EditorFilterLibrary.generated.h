@@ -1,4 +1,4 @@
-// Copyright 1998-2018 Epic Games, Inc. All Rights Reserved.
+// Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
 /*===========================================================================
 	Generated code exported from UnrealHeaderTool.
 	DO NOT modify this manually! Edit the corresponding .h files instead!
@@ -249,6 +249,8 @@ private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
+template<> EDITORSCRIPTINGUTILITIES_API UClass* StaticClass<class UEditorFilterLibrary>();
+
 #undef CURRENT_FILE_ID
 #define CURRENT_FILE_ID EditExtend01_Plugins_Editor_EditorScriptingUtilities_Source_EditorScriptingUtilities_Public_EditorFilterLibrary_h
 
@@ -257,7 +259,15 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 	op(EEditorScriptingStringMatchType::Contains) \
 	op(EEditorScriptingStringMatchType::MatchesWildcard) \
 	op(EEditorScriptingStringMatchType::ExactMatch) 
+
+enum class EEditorScriptingStringMatchType : uint8;
+template<> EDITORSCRIPTINGUTILITIES_API UEnum* StaticEnum<EEditorScriptingStringMatchType>();
+
 #define FOREACH_ENUM_EEDITORSCRIPTINGFILTERTYPE(op) \
 	op(EEditorScriptingFilterType::Include) \
 	op(EEditorScriptingFilterType::Exclude) 
+
+enum class EEditorScriptingFilterType : uint8;
+template<> EDITORSCRIPTINGUTILITIES_API UEnum* StaticEnum<EEditorScriptingFilterType>();
+
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

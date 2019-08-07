@@ -1,4 +1,4 @@
-// Copyright 1998-2018 Epic Games, Inc. All Rights Reserved.
+// Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
 /*===========================================================================
 	Generated code exported from UnrealHeaderTool.
 	DO NOT modify this manually! Edit the corresponding .h files instead!
@@ -33,16 +33,22 @@ class UActorComponent;
 	typedef FEditorScriptingJoinStaticMeshActorsOptions Super;
 
 
+template<> EDITORSCRIPTINGUTILITIES_API UScriptStruct* StaticStruct<struct FEditorScriptingCreateProxyMeshActorOptions>();
+
 #define EditExtend01_Plugins_Editor_EditorScriptingUtilities_Source_EditorScriptingUtilities_Public_EditorLevelLibrary_h_38_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FEditorScriptingMergeStaticMeshActorsOptions_Statics; \
 	EDITORSCRIPTINGUTILITIES_API static class UScriptStruct* StaticStruct(); \
 	typedef FEditorScriptingJoinStaticMeshActorsOptions Super;
 
 
+template<> EDITORSCRIPTINGUTILITIES_API UScriptStruct* StaticStruct<struct FEditorScriptingMergeStaticMeshActorsOptions>();
+
 #define EditExtend01_Plugins_Editor_EditorScriptingUtilities_Source_EditorScriptingUtilities_Public_EditorLevelLibrary_h_15_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FEditorScriptingJoinStaticMeshActorsOptions_Statics; \
 	EDITORSCRIPTINGUTILITIES_API static class UScriptStruct* StaticStruct();
 
+
+template<> EDITORSCRIPTINGUTILITIES_API UScriptStruct* StaticStruct<struct FEditorScriptingJoinStaticMeshActorsOptions>();
 
 #define EditExtend01_Plugins_Editor_EditorScriptingUtilities_Source_EditorScriptingUtilities_Public_EditorLevelLibrary_h_84_RPC_WRAPPERS \
  \
@@ -541,6 +547,8 @@ public: \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
+
+template<> EDITORSCRIPTINGUTILITIES_API UClass* StaticClass<class UEditorLevelLibrary>();
 
 #undef CURRENT_FILE_ID
 #define CURRENT_FILE_ID EditExtend01_Plugins_Editor_EditorScriptingUtilities_Source_EditorScriptingUtilities_Public_EditorLevelLibrary_h

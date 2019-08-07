@@ -1,4 +1,4 @@
-// Copyright 1998-2018 Epic Games, Inc. All Rights Reserved.
+// Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
 /*===========================================================================
 	Generated code exported from UnrealHeaderTool.
 	DO NOT modify this manually! Edit the corresponding .h files instead!
@@ -109,6 +109,8 @@ public: \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
+
+template<> EDITORSCRIPTINGUTILITIES_API UClass* StaticClass<class UEditorSkeletalMeshLibrary>();
 
 #undef CURRENT_FILE_ID
 #define CURRENT_FILE_ID EditExtend01_Plugins_Editor_EditorScriptingUtilities_Source_EditorScriptingUtilities_Public_EditorSkeletalMeshLibrary_h
