@@ -13,7 +13,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define DETAILSTEST_StructVariable_generated_h
 
-#define EditExtend01_Plugins_DetailsTest_Source_DetailsTest_Public_StructVariable_h_12_GENERATED_BODY \
+#define EditorExtend_Plugins_DetailsTest_Source_DetailsTest_Public_StructVariable_h_12_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FStructVariable_Statics; \
 	DETAILSTEST_API static class UScriptStruct* StaticStruct();
 
@@ -21,7 +21,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 template<> DETAILSTEST_API UScriptStruct* StaticStruct<struct FStructVariable>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID EditExtend01_Plugins_DetailsTest_Source_DetailsTest_Public_StructVariable_h
+#define CURRENT_FILE_ID EditorExtend_Plugins_DetailsTest_Source_DetailsTest_Public_StructVariable_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

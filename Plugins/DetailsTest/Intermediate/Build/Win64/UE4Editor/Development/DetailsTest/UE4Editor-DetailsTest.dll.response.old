@@ -33,6 +33,7 @@
 /NODEFAULTLIB:"LIBCPD"
 /FUNCTIONPADMIN
 "D:\selfSpace\UE4Code\UnrealEngine-4.22\Engine\Intermediate\Build\Win64\UE4Editor\Development\Engine\SharedPCH.Engine.h.obj"
+"D:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Development\DetailsTest\CustomWidget.cpp.obj"
 "D:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Development\DetailsTest\Module.DetailsTest.cpp.obj"
 "D:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Development\DetailsTest\Module.DetailsTest.gen.cpp.obj"
 "D:\selfSpace\UE4Code\UnrealEngine-4.22\Engine\Intermediate\Build\Win64\UE4Editor\Development\Default.rc2.res"

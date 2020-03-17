@@ -3,11 +3,11 @@
 	{
 		"Module.DetailsTest.cpp.obj": [
 			"CustomizationObject.cpp.obj",
+			"CustomWidget.cpp.obj",
 			"DetailsTest.cpp.obj",
 			"MyTestCustomization.cpp.obj",
 			"StructVariable.cpp.obj",
-			"StructVariableDetail.cpp.obj",
-			"CustomWidget.cpp.obj"
+			"StructVariableDetail.cpp.obj"
 		],
 		"Module.DetailsTest.gen.cpp.obj": [
 			"CustomizationObject.gen.cpp.obj",

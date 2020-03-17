@@ -6,10 +6,9 @@
 /NAME:"UE4Editor-DetailsTest.dll"
 /IGNORE:4221
 /NODEFAULTLIB
-"D:\selfSpace\UE4Code\UnrealEngine-4.22\Engine\Intermediate\Build\Win64\UE4Editor\Development\Engine\SharedPCH.Engine.h.obj"
-"D:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Development\DetailsTest\CustomWidget.cpp.obj"
-"D:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Development\DetailsTest\Module.DetailsTest.cpp.obj"
-"D:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Development\DetailsTest\Module.DetailsTest.gen.cpp.obj"
-"D:\selfSpace\UE4Code\UnrealEngine-4.22\Engine\Intermediate\Build\Win64\UE4Editor\Development\Default.rc2.res"
-/OUT:"D:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Development\DetailsTest\UE4Editor-DetailsTest.lib"
+"E:\SelfSpace\EditorExtend\Intermediate\Build\Win64\EditExtend01Editor\Development\Engine\SharedPCH.Engine.h.obj"
+"E:\SelfSpace\EditorExtend\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Development\DetailsTest\Module.DetailsTest.cpp.obj"
+"E:\SelfSpace\EditorExtend\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Development\DetailsTest\Module.DetailsTest.gen.cpp.obj"
+"E:\SelfSpace\EditorExtend\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Development\DetailsTest\Default.rc2.res"
+/OUT:"E:\SelfSpace\EditorExtend\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Development\DetailsTest\UE4Editor-DetailsTest.lib"
 /INCLUDE:IMPLEMENT_MODULE_DetailsTest

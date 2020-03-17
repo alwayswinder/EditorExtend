@@ -6,7 +6,8 @@
 /NAME:"UE4Editor-ExtendEditor.dll"
 /IGNORE:4221
 /NODEFAULTLIB
-"F:\selfSpace\UEProje\EditExtend01\Intermediate\Build\Win64\EditExtend01Editor\Development\UnrealEd\SharedPCH.UnrealEd.h.obj"
-"F:\selfSpace\UEProje\EditExtend01\Plugins\ExtendEditor\Intermediate\Build\Win64\UE4Editor\Development\ExtendEditor\Module.ExtendEditor.cpp.obj"
-"F:\selfSpace\UEProje\EditExtend01\Plugins\ExtendEditor\Intermediate\Build\Win64\UE4Editor\Development\ExtendEditor\PCLaunch.rc.res"
-/OUT:"F:\selfSpace\UEProje\EditExtend01\Plugins\ExtendEditor\Intermediate\Build\Win64\UE4Editor\Development\ExtendEditor\UE4Editor-ExtendEditor.lib"
+"D:\selfSpace\UE4Code\UnrealEngine-4.22\Engine\Intermediate\Build\Win64\UE4Editor\Development\UnrealEd\SharedPCH.UnrealEd.h.obj"
+"D:\selfSpace\UEProje\EditExtend01\Plugins\ExtendEditor\Intermediate\Build\Win64\UE4Editor\Development\ExtendEditor\Module.ExtendEditor.cpp.obj"
+"D:\selfSpace\UE4Code\UnrealEngine-4.22\Engine\Intermediate\Build\Win64\UE4Editor\Development\Default.rc2.res"
+/OUT:"D:\selfSpace\UEProje\EditExtend01\Plugins\ExtendEditor\Intermediate\Build\Win64\UE4Editor\Development\ExtendEditor\UE4Editor-ExtendEditor.lib"
+/INCLUDE:IMPLEMENT_MODULE_ExtendEditor
