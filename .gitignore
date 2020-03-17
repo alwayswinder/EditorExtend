@@ -1,0 +1,37 @@
+﻿
+# 聊天分支忽略文件
+/.vs
+/*.sln
+
+/*.dll
+/*.pdb
+
+# 预编译文件
+SourceArt/**/*.png
+SourceArt/**/*.tga
+
+# 二进制文件
+Binaries/*
+Plugins/*/Binaries/*
+
+# Builds
+Build/*
+
+# Whitelist PakBlacklist-<BuildConfiguration>.txt files
+!Build/*/
+Build/*/**
+!Build/*/PakBlacklist*.txt
+
+# 构建文件
+!Build/**/*.ico
+
+# 地图构建文件
+*_BuiltData.uasset
+
+# 存档文件
+Saved/*
+
+#引擎生成的文件
+Intermediate/*
+Plugins/*/Intermediate/*
+Plugins/*/Export/*
