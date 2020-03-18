@@ -28,7 +28,7 @@
 /wd4838
 /we4668
 /I .
-/I D:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Source\DetailsTest\Private
+/I E:\SelfSpace\EditorExtend\Plugins\DetailsTest\Source\DetailsTest\Private
 /I ..\Intermediate\Build\Win64\UE4Editor\Inc\CoreUObject
 /I Runtime
 /I Runtime\CoreUObject\Public
@@ -427,22 +427,22 @@
 /I ThirdParty
 /I ThirdParty\libSampleRate\Public
 /I ThirdParty\libSampleRate
-/I D:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Inc\DetailsTest
-/I D:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Source
-/I D:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Source\DetailsTest\Public
-/I D:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Source\DetailsTest
-/I D:\Software\VS2017\VC\Tools\MSVC\14.16.27023\INCLUDE
+/I E:\SelfSpace\EditorExtend\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Inc\DetailsTest
+/I E:\SelfSpace\EditorExtend\Plugins\DetailsTest\Source
+/I E:\SelfSpace\EditorExtend\Plugins\DetailsTest\Source\DetailsTest\Public
+/I E:\SelfSpace\EditorExtend\Plugins\DetailsTest\Source\DetailsTest
+/I "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\VC\Tools\MSVC\14.16.27023\INCLUDE"
 /I "C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\ucrt"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\shared"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\um"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\winrt"
-/FI"D:\selfSpace\UE4Code\UnrealEngine-4.22\Engine\Intermediate\Build\Win64\UE4Editor\Development\Engine\SharedPCH.Engine.h"
-/Yu"D:\selfSpace\UE4Code\UnrealEngine-4.22\Engine\Intermediate\Build\Win64\UE4Editor\Development\Engine\SharedPCH.Engine.h"
-/Fp"D:\selfSpace\UE4Code\UnrealEngine-4.22\Engine\Intermediate\Build\Win64\UE4Editor\Development\Engine\SharedPCH.Engine.h.pch"
-"D:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Development\DetailsTest\Module.DetailsTest.cpp"
-/FI"D:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Development\DetailsTest\Definitions.DetailsTest.h"
-/Fo"D:\selfSpace\UEProje\EditExtend01\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Development\DetailsTest\Module.DetailsTest.cpp.obj"
+/FI"E:\SelfSpace\EditorExtend\Intermediate\Build\Win64\EditExtend01Editor\Development\Engine\SharedPCH.Engine.h"
+/Yu"E:\SelfSpace\EditorExtend\Intermediate\Build\Win64\EditExtend01Editor\Development\Engine\SharedPCH.Engine.h"
+/Fp"E:\SelfSpace\EditorExtend\Intermediate\Build\Win64\EditExtend01Editor\Development\Engine\SharedPCH.Engine.h.pch"
+"E:\SelfSpace\EditorExtend\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Development\DetailsTest\Module.DetailsTest.cpp"
+/FI"E:\SelfSpace\EditorExtend\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Development\DetailsTest\Definitions.DetailsTest.h"
+/Fo"E:\SelfSpace\EditorExtend\Plugins\DetailsTest\Intermediate\Build\Win64\UE4Editor\Development\DetailsTest\Module.DetailsTest.cpp.obj"
 /TP
 /GR-
 /W4

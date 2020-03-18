@@ -28,7 +28,7 @@
 /wd4838
 /we4668
 /I .
-/I D:\selfSpace\UEProje\EditExtend01\Plugins\ExtendEditor\Source\ExtendEditor\Private
+/I E:\SelfSpace\EditorExtend\Plugins\ExtendEditor\Source\ExtendEditor\Private
 /I Runtime
 /I Runtime\Projects\Public
 /I Runtime\Projects
@@ -427,21 +427,21 @@
 /I Runtime\AIModule\Public
 /I Runtime\AIModule\Classes
 /I Runtime\AIModule
-/I D:\selfSpace\UEProje\EditExtend01\Plugins\ExtendEditor\Source
-/I D:\selfSpace\UEProje\EditExtend01\Plugins\ExtendEditor\Source\ExtendEditor\Public
-/I D:\selfSpace\UEProje\EditExtend01\Plugins\ExtendEditor\Source\ExtendEditor
-/I D:\Software\VS2017\VC\Tools\MSVC\14.16.27023\INCLUDE
+/I E:\SelfSpace\EditorExtend\Plugins\ExtendEditor\Source
+/I E:\SelfSpace\EditorExtend\Plugins\ExtendEditor\Source\ExtendEditor\Public
+/I E:\SelfSpace\EditorExtend\Plugins\ExtendEditor\Source\ExtendEditor
+/I "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\VC\Tools\MSVC\14.16.27023\INCLUDE"
 /I "C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\ucrt"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\shared"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\um"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\winrt"
-/FI"D:\selfSpace\UE4Code\UnrealEngine-4.22\Engine\Intermediate\Build\Win64\UE4Editor\Development\UnrealEd\SharedPCH.UnrealEd.h"
-/Yu"D:\selfSpace\UE4Code\UnrealEngine-4.22\Engine\Intermediate\Build\Win64\UE4Editor\Development\UnrealEd\SharedPCH.UnrealEd.h"
-/Fp"D:\selfSpace\UE4Code\UnrealEngine-4.22\Engine\Intermediate\Build\Win64\UE4Editor\Development\UnrealEd\SharedPCH.UnrealEd.h.pch"
-"D:\selfSpace\UEProje\EditExtend01\Plugins\ExtendEditor\Intermediate\Build\Win64\UE4Editor\Development\ExtendEditor\Module.ExtendEditor.cpp"
-/FI"D:\selfSpace\UEProje\EditExtend01\Plugins\ExtendEditor\Intermediate\Build\Win64\UE4Editor\Development\ExtendEditor\Definitions.ExtendEditor.h"
-/Fo"D:\selfSpace\UEProje\EditExtend01\Plugins\ExtendEditor\Intermediate\Build\Win64\UE4Editor\Development\ExtendEditor\Module.ExtendEditor.cpp.obj"
+/FI"E:\SelfSpace\EditorExtend\Intermediate\Build\Win64\EditExtend01Editor\Development\UnrealEd\SharedPCH.UnrealEd.h"
+/Yu"E:\SelfSpace\EditorExtend\Intermediate\Build\Win64\EditExtend01Editor\Development\UnrealEd\SharedPCH.UnrealEd.h"
+/Fp"E:\SelfSpace\EditorExtend\Intermediate\Build\Win64\EditExtend01Editor\Development\UnrealEd\SharedPCH.UnrealEd.h.pch"
+"E:\SelfSpace\EditorExtend\Plugins\ExtendEditor\Intermediate\Build\Win64\UE4Editor\Development\ExtendEditor\Module.ExtendEditor.cpp"
+/FI"E:\SelfSpace\EditorExtend\Plugins\ExtendEditor\Intermediate\Build\Win64\UE4Editor\Development\ExtendEditor\Definitions.ExtendEditor.h"
+/Fo"E:\SelfSpace\EditorExtend\Plugins\ExtendEditor\Intermediate\Build\Win64\UE4Editor\Development\ExtendEditor\Module.ExtendEditor.cpp.obj"
 /TP
 /GR-
 /W4
