@@ -24,7 +24,8 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
+private:
+	static void SaveActorInfoWhenPlay(AActor* actorPIE, AActor* actorEditor);
 public:
 
 #if WITH_EDITOR
@@ -43,7 +44,7 @@ public:
 		static void StopPlay();
 	UFUNCTION(BlueprintCallable, Category = "Test")
 		static void ClearAllActors();
-	
+	virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)override;
 
 #endif 
 

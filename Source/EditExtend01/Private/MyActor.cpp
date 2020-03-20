@@ -35,6 +35,17 @@ void AMyActor::Tick(float DeltaTime)
 
 }
 
+void AMyActor::SaveActorInfoWhenPlay(AActor* actorPIE, AActor* actorEditor)
+{
+	const auto CopyOptions = (EditorUtilities::ECopyOptions::Type)(
+		EditorUtilities::ECopyOptions::CallPostEditChangeProperty |
+		EditorUtilities::ECopyOptions::CallPostEditMove |
+		EditorUtilities::ECopyOptions::OnlyCopyEditOrInterpProperties |
+		EditorUtilities::ECopyOptions::FilterBlueprintReadOnly);
+	const int32 CopiedPropertyCount = EditorUtilities::CopyActorProperties(actorPIE, actorEditor,
+		CopyOptions);
+}
+
 void AMyActor::SpawnOne()
 {
 	if (!SpawnTargetClass)
@@ -118,13 +129,7 @@ void AMyActor::SaveCurentState()
 			AActor* simWorldActor = EditorUtilities::GetSimWorldCounterpartActor(EditorActor);
 			if (simWorldActor != NULL)
 			{
-				const auto CopyOptions = (EditorUtilities::ECopyOptions::Type)(
-					EditorUtilities::ECopyOptions::CallPostEditChangeProperty |
-					EditorUtilities::ECopyOptions::CallPostEditMove |
-					EditorUtilities::ECopyOptions::OnlyCopyEditOrInterpProperties |
-					EditorUtilities::ECopyOptions::FilterBlueprintReadOnly);
-				const int32 CopiedPropertyCount = EditorUtilities::CopyActorProperties(simWorldActor, EditorActor,
-					CopyOptions);
+				SaveActorInfoWhenPlay(simWorldActor, EditorActor);
 			}
 		}
 	}
@@ -157,25 +162,65 @@ void AMyActor::SpawnOneActor()
 		if (PIEWorld)
 		{
 			AActor* NewLevelActor = PIEWorld->SpawnActor(myActor->SpawnTargetClass, &pos);
+			NewLevelActor->SetOwner(newActor);
 		}
 	}
-}
+} 
 
 void AMyActor::StopPlay()
 {
+	UWorld* PIEWorld = GEditor->GetPIEWorldContext() ? GEditor->GetPIEWorldContext()->World() : nullptr;
+
+	TArray<AActor*> AllMyActorsInLevel;
+	UGameplayStatics::GetAllActorsOfClass(PIEWorld, AMyActor::StaticClass(), AllMyActorsInLevel);
+	if (AllMyActorsInLevel.Num() > 0)
+	{
+		AMyActor* myActor = Cast<AMyActor>(AllMyActorsInLevel[0]);
+		TArray<AActor*> AllSpawnActors;
+		UGameplayStatics::GetAllActorsOfClass(PIEWorld, myActor->SpawnTargetClass, AllSpawnActors);
+		for (AActor* SpawnActor : AllSpawnActors)
+		{
+			if (SpawnActor->GetOwner())
+			{
+				SaveActorInfoWhenPlay(SpawnActor, SpawnActor->GetOwner());
+			}
+		}
+	}
+	SaveCurentState();
 	GEditor->RequestEndPlayMap();
 }
 
 void AMyActor::ClearAllActors()
 {
 	UWorld* editorWorld = GEditor->GetEditorWorldContext().World();
-
-	TArray<AActor*> AllMyActorsInLevel;
-	UGameplayStatics::GetAllActorsOfClass(editorWorld, AMyActor::StaticClass(), AllMyActorsInLevel);
-	for (AActor* actor : AllMyActorsInLevel)
+	TArray<AActor*> AllMyActorsInEditor;
+	UGameplayStatics::GetAllActorsOfClass(editorWorld, AMyActor::StaticClass(), AllMyActorsInEditor);
+	for (AActor* actor : AllMyActorsInEditor)
 	{
 		AMyActor* myActor = Cast<AMyActor>(actor);
 		myActor->ClearActor();
 	}
+
+	UWorld* PIEWorld = GEditor->GetPIEWorldContext() ? GEditor->GetPIEWorldContext()->World() : nullptr;
+	TArray<AActor*> AllMyActorsInLevel;
+	UGameplayStatics::GetAllActorsOfClass(PIEWorld, AMyActor::StaticClass(), AllMyActorsInLevel);
+	if (AllMyActorsInLevel.Num() > 0)
+	{
+		AMyActor* myActor = Cast<AMyActor>(AllMyActorsInLevel[0]);
+		TArray<AActor*> AllSpawnActors;
+		UGameplayStatics::GetAllActorsOfClass(PIEWorld, myActor->SpawnTargetClass, AllSpawnActors);
+		for (AActor* SpawnActor : AllSpawnActors)
+		{
+			SpawnActor->Destroy();
+		}
+	}
+}
+
+void AMyActor::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)
+{
+	Super::PostEditChangeProperty(PropertyChangedEvent);
+
+
+
 }
 
