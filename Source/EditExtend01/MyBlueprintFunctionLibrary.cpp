@@ -14,3 +14,18 @@ bool UMyBlueprintFunctionLibrary::ResetMaterialSlotNames(UStaticMesh* StaticMesh
 	}
 	return false;
 }
+
+void UMyBlueprintFunctionLibrary::TwiceDelay(UObject* WorldContextObject, FLatentActionInfo LatentInfo, float Duration, 
+	DELAY_EXEC& exec)
+{
+	if (UWorld* World = GEngine->GetWorldFromContextObjectChecked(WorldContextObject))
+	{
+		FLatentActionManager& LatentActionManager = World->GetLatentActionManager();
+		if (LatentActionManager.FindExistingAction<FTwiceDelayAction>(LatentInfo.CallbackTarget, LatentInfo.UUID)
+			== NULL)
+		{
+			LatentActionManager.AddNewAction(LatentInfo.CallbackTarget, LatentInfo.UUID, new FTwiceDelayAction(Duration,
+				LatentInfo, exec));
+		}
+	}
+}
