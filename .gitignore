@@ -37,3 +37,6 @@ Plugins/*/Intermediate/*
 Plugins/*/Export/*
 
 DerivedDataCache/*
+
+
+Plugins/UnrealEnginePython/*

@@ -33,35 +33,40 @@ void FExtendEditorModule::StartupModule()
 
 	{
 		TSharedPtr<FExtender> MenubarExtender = MakeShareable(new FExtender());
-		MenubarExtender->AddMenuBarExtension("Help", EExtensionHook::After, PluginCommands, FMenuBarExtensionDelegate::CreateRaw(this, &FExtendEditorModule::AddMenuBarExtension));
+		MenubarExtender->AddMenuBarExtension("Help", EExtensionHook::After, PluginCommands,
+			FMenuBarExtensionDelegate::CreateRaw(this, &FExtendEditorModule::AddMenuBarExtension));
 
 		LevelEditorModule.GetMenuExtensibilityManager()->AddExtender(MenubarExtender);
 	}
 
 	{
 		TSharedPtr<FExtender> MenuExtender = MakeShareable(new FExtender());
-		MenuExtender->AddMenuExtension("WindowLayout", EExtensionHook::After, PluginCommands, FMenuExtensionDelegate::CreateRaw(this, &FExtendEditorModule::AddMenuExtension));
+		MenuExtender->AddMenuExtension("WindowLayout", EExtensionHook::After, PluginCommands, 
+			FMenuExtensionDelegate::CreateRaw(this, &FExtendEditorModule::AddMenuExtension));
 
 		LevelEditorModule.GetMenuExtensibilityManager()->AddExtender(MenuExtender);
 	}
 	
 	{
 		TSharedPtr<FExtender> ToolbarExtender = MakeShareable(new FExtender);
-		ToolbarExtender->AddToolBarExtension("Settings", EExtensionHook::After, PluginCommands, FToolBarExtensionDelegate::CreateRaw(this, &FExtendEditorModule::AddToolbarExtension));
+		ToolbarExtender->AddToolBarExtension("Settings", EExtensionHook::After, PluginCommands, 
+			FToolBarExtensionDelegate::CreateRaw(this, &FExtendEditorModule::AddToolbarExtension));
 		
 		LevelEditorModule.GetToolBarExtensibilityManager()->AddExtender(ToolbarExtender);
 	}
 
 	{
 		auto& MenuButtonArray = LevelEditorModule.GetAllLevelViewportContextMenuExtenders();
-		MenuButtonArray.Add(FLevelEditorModule::FLevelViewportMenuExtender_SelectedActors::CreateRaw(this, &FExtendEditorModule::SelectedCurrentActors));
+		MenuButtonArray.Add(FLevelEditorModule::FLevelViewportMenuExtender_SelectedActors::CreateRaw(this,
+			&FExtendEditorModule::SelectedCurrentActors));
 		LevelViewportMenuExtender_SelectedActors = MenuButtonArray.Last().GetHandle();
 	}
 	{
 		FContentBrowserModule& ContentBrowserModule = FModuleManager::LoadModuleChecked<FContentBrowserModule>("ContentBrowser");
 		auto& MenuButtonArray = ContentBrowserModule.GetAllPathViewContextMenuExtenders();
 
-		MenuButtonArray.Add(FContentBrowserMenuExtender_SelectedPaths::CreateRaw(this, &FExtendEditorModule::GetPathsFromEditor));
+		MenuButtonArray.Add(FContentBrowserMenuExtender_SelectedPaths::CreateRaw(this,
+			&FExtendEditorModule::GetPathsFromEditor));
 
 	}
 }
@@ -143,7 +148,8 @@ void FExtendEditorModule::PullDownSuBar(FMenuBuilder& Builder)
 	);
 }
 
-TSharedRef<FExtender> FExtendEditorModule::SelectedCurrentActors(const TSharedRef<FUICommandList> MyCommandList, const TArray<AActor*> AlActor)
+TSharedRef<FExtender> FExtendEditorModule::SelectedCurrentActors(const TSharedRef<FUICommandList> MyCommandList,
+	const TArray<AActor*> AlActor)
 {
 	TSharedRef<FExtender> Extender = MakeShareable(new FExtender);
 
@@ -159,7 +165,8 @@ TSharedRef<FExtender> FExtendEditorModule::SelectedCurrentActors(const TSharedRe
 		FLevelEditorModule& LevelEditorModule = FModuleManager::LoadModuleChecked<FLevelEditorModule>("LevelEditor");
 		TSharedRef<FUICommandList> LevelCommand = LevelEditorModule.GetGlobalLevelEditorActions();
 
- 		Extender->AddMenuExtension("ActorControl", EExtensionHook::After, LevelCommand, FMenuExtensionDelegate::CreateRaw(this, &FExtendEditorModule::AddSelectActorButton));
+ 		Extender->AddMenuExtension("ActorControl", EExtensionHook::After, LevelCommand, 
+			FMenuExtensionDelegate::CreateRaw(this, &FExtendEditorModule::AddSelectActorButton));
 	}
 	return Extender;
 }
