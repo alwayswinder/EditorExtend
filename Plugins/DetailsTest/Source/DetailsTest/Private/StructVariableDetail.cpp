@@ -3,9 +3,9 @@
 #include "SImage.h"
 
 
-void FStructVariableDetail::CustomizeHeader(TSharedRef<IPropertyHandle> PropertyHandle, FDetailWidgetRow& HeaderRow, IPropertyTypeCustomizationUtils& CustomizationUtils)
+void FStructVariableDetail::CustomizeHeader(TSharedRef<IPropertyHandle> PropertyHandle, FDetailWidgetRow& HeaderRow, 
+	IPropertyTypeCustomizationUtils& CustomizationUtils)
 {
-
 	HeaderRow
 	.NameContent()
 		[
@@ -17,7 +17,6 @@ void FStructVariableDetail::CustomizeHeader(TSharedRef<IPropertyHandle> Property
 		[
 			SNew(SImage)
 		];
-
 }
 
 void FStructVariableDetail::CustomizeChildren(TSharedRef<IPropertyHandle> PropertyHandle, IDetailChildrenBuilder& ChildBuilder, IPropertyTypeCustomizationUtils& CustomizationUtils)

@@ -46,13 +46,14 @@ void FDetailsTestModule::ShutdownModule()
 
 void FDetailsTestModule::RegisterPropertyTypeCustomization()
 {
-	RegisterCustomPropertyTypeLayout("StructVariable", FOnGetPropertyTypeCustomizationInstance::CreateStatic(&FStructVariableDetail::MakeInstance));
-
+	RegisterCustomPropertyTypeLayout("StructVariable",
+		FOnGetPropertyTypeCustomizationInstance::CreateStatic(&FStructVariableDetail::MakeInstance));
 }
 
 void FDetailsTestModule::RegisterObjectCustomization()
 {
-	RegisterCustomClasslayout("CustomizationObject", FOnGetDetailCustomizationInstance::CreateStatic(&FMyTestDetailsCustomization::MakeInstance));
+	RegisterCustomClasslayout("CustomizationObject", 
+		FOnGetDetailCustomizationInstance::CreateStatic(&FMyTestDetailsCustomization::MakeInstance));
 }
 
 void FDetailsTestModule::RegisterCustomClasslayout(FName ClassName, FOnGetDetailCustomizationInstance DetailLayoutDelegate)
@@ -65,7 +66,8 @@ void FDetailsTestModule::RegisterCustomClasslayout(FName ClassName, FOnGetDetail
 	PropertyModule.RegisterCustomClassLayout(ClassName, DetailLayoutDelegate);
 }
 
-void FDetailsTestModule::RegisterCustomPropertyTypeLayout(FName PropertyTypeName, FOnGetPropertyTypeCustomizationInstance PropertyTypeLayoutDelegate)
+void FDetailsTestModule::RegisterCustomPropertyTypeLayout(FName PropertyTypeName, 
+	FOnGetPropertyTypeCustomizationInstance PropertyTypeLayoutDelegate)
 {
 	check(PropertyTypeName != NAME_None);
 

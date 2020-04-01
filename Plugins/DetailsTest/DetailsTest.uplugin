@@ -13,11 +13,16 @@
 	"CanContainContent": true,
 	"IsBetaVersion": false,
 	"Installed": false,
-	"Modules": [
-		{
-			"Name": "DetailsTest",
-			"Type": "Runtime",
-			"LoadingPhase": "Default"
-		}
-	]
+  "Modules": [
+    {
+      "Name": "DetailsTest",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    },
+    {
+      "Name": "ReflectionDataPanel",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    }
+  ]
 }

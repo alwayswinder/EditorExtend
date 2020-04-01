@@ -14,7 +14,7 @@ void SCustomWidget::Construct(const FArguments& InArgs)
 	FPropertyEditorModule& PropertyModule = FModuleManager::LoadModuleChecked<FPropertyEditorModule>("PropertyEditor");
 	FDetailsViewArgs DetailsViewArgs;
 	ConfigPanel = PropertyModule.CreateDetailView(DetailsViewArgs);
-//  ConfigPanel->SetObject(UCustomizationObject::StaticClass()->GetDefaultObject(true), true);
+    ConfigPanel->SetObject(UCustomizationObject::StaticClass()->GetDefaultObject(true), true);
 
 	ChildSlot
 		[

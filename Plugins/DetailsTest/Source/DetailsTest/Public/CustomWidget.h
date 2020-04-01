@@ -6,7 +6,7 @@
 #include "IDetailsView.h"
 
 
-class SCustomWidget : public SCompoundWidget 
+class DETAILSTEST_API SCustomWidget : public SCompoundWidget
 {
 public:
 
