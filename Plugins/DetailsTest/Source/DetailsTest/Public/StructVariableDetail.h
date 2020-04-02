@@ -13,4 +13,12 @@ public:
 	virtual void CustomizeChildren(TSharedRef<IPropertyHandle> PropertyHandle, IDetailChildrenBuilder& ChildBuilder, IPropertyTypeCustomizationUtils& CustomizationUtils) override;
 
 	static TSharedRef<IPropertyTypeCustomization> MakeInstance();
+
+	void OnPropertyTextCommited(const FText& InText, ETextCommit::Type InCommitType)const;
+
+
+private:
+	TSharedPtr<IPropertyHandle> PropertyText;
+
+	TSharedPtr<class SEditableTextBox> EditableTextBox;
 };

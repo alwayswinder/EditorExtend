@@ -20,5 +20,5 @@ public:
 
 	TSharedPtr<IDetailsView> ConfigPanel;
 
-	class UCustomizationObject *CustomizeObject;
+	TAttribute<class UCustomizationObject*> CustomizeObject;
 };

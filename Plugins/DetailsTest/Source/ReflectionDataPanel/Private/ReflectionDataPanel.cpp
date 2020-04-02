@@ -9,6 +9,7 @@
 #include "Widgets/Text/STextBlock.h"
 #include "Framework/MultiBox/MultiBoxBuilder.h"
 #include "CustomWidget.h"
+#include "CustomizationObject.h"
 
 static const FName ReflectionDataPanelTabName("ReflectionDataPanel");
 
@@ -17,7 +18,13 @@ static const FName ReflectionDataPanelTabName("ReflectionDataPanel");
 void FReflectionDataPanelModule::StartupModule()
 {
 	// This code will execute after your module is loaded into memory; the exact timing is specified in the .uplugin file per-module
-	
+	CustomizeObject = NewObject<UCustomizationObject>();
+	if (CustomizeObject)
+	{
+		CustomizeObject->AddToRoot();
+	}
+
+
 	FReflectionDataPanelStyle::Initialize();
 	FReflectionDataPanelStyle::ReloadTextures();
 
@@ -60,6 +67,12 @@ void FReflectionDataPanelModule::ShutdownModule()
 	FReflectionDataPanelCommands::Unregister();
 
 	FGlobalTabmanager::Get()->UnregisterNomadTabSpawner(ReflectionDataPanelTabName);
+
+	if (CustomizeObject)
+	{
+		//CustomizeObject->ConditionalBeginDestroy();
+		CustomizeObject = nullptr;
+	}
 }
 
 TSharedRef<SDockTab> FReflectionDataPanelModule::OnSpawnPluginTab(const FSpawnTabArgs& SpawnTabArgs)
@@ -82,6 +95,7 @@ TSharedRef<SDockTab> FReflectionDataPanelModule::OnSpawnPluginTab(const FSpawnTa
 				//SNew(STextBlock)
 				//.Text(WidgetText)
 				SNew(SCustomWidget)
+				.CustomizeObject(CustomizeObject)
 			]
 		];
 }

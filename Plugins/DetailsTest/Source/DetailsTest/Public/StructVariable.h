@@ -13,4 +13,7 @@ struct  FStructVariable
 public:
 	UPROPERTY(EditAnywhere, Category = "Struct Value")
 	int32 Testvalue;
+
+	UPROPERTY(EditAnywhere, Category = "Struct Value")
+	FText MyText;
 };

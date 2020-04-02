@@ -45,6 +45,10 @@ static struct FScriptStruct_DetailsTest_StaticRegisterNativesFStructVariable
 #endif
 		static void* NewStructOps();
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MyText_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FTextPropertyParams NewProp_MyText;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Testvalue_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FIntPropertyParams NewProp_Testvalue;
@@ -62,6 +66,13 @@ static struct FScriptStruct_DetailsTest_StaticRegisterNativesFStructVariable
 		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FStructVariable>();
 	}
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FStructVariable_Statics::NewProp_MyText_MetaData[] = {
+		{ "Category", "Struct Value" },
+		{ "ModuleRelativePath", "Public/StructVariable.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FTextPropertyParams Z_Construct_UScriptStruct_FStructVariable_Statics::NewProp_MyText = { "MyText", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Text, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FStructVariable, MyText), METADATA_PARAMS(Z_Construct_UScriptStruct_FStructVariable_Statics::NewProp_MyText_MetaData, ARRAY_COUNT(Z_Construct_UScriptStruct_FStructVariable_Statics::NewProp_MyText_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FStructVariable_Statics::NewProp_Testvalue_MetaData[] = {
 		{ "Category", "Struct Value" },
 		{ "ModuleRelativePath", "Public/StructVariable.h" },
@@ -69,6 +80,7 @@ static struct FScriptStruct_DetailsTest_StaticRegisterNativesFStructVariable
 #endif
 	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FStructVariable_Statics::NewProp_Testvalue = { "Testvalue", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FStructVariable, Testvalue), METADATA_PARAMS(Z_Construct_UScriptStruct_FStructVariable_Statics::NewProp_Testvalue_MetaData, ARRAY_COUNT(Z_Construct_UScriptStruct_FStructVariable_Statics::NewProp_Testvalue_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FStructVariable_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FStructVariable_Statics::NewProp_MyText,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FStructVariable_Statics::NewProp_Testvalue,
 	};
 	const UE4CodeGen_Private::FStructParams Z_Construct_UScriptStruct_FStructVariable_Statics::ReturnStructParams = {
@@ -99,7 +111,7 @@ static struct FScriptStruct_DetailsTest_StaticRegisterNativesFStructVariable
 		}
 		return ReturnStruct;
 	}
-	uint32 Get_Z_Construct_UScriptStruct_FStructVariable_Hash() { return 2163158830U; }
+	uint32 Get_Z_Construct_UScriptStruct_FStructVariable_Hash() { return 3310601183U; }
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 #ifdef _MSC_VER
 #pragma warning (pop)

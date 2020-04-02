@@ -37,6 +37,13 @@ E:\SelfSpace\EditorExtend\Plugins\DetailsTest\Source\DetailsTest\Public\DetailsT
 E:\SelfSpace\EditorExtend\Plugins\DetailsTest\Source\DetailsTest\Public\MyTestCustomization.h
 E:\SelfSpace\EditorExtend\Plugins\DetailsTest\Source\DetailsTest\Public\StructVariableDetail.h
 E:\SelfSpace\EditorExtend\Plugins\DetailsTest\Source\DetailsTest\Private\MyTestCustomization.cpp
+E:\SelfSpace\UnrealEngine-4.22\Engine\Source\Editor\PropertyEditor\Public\PropertyCustomizationHelpers.h
+e:\selfspace\unrealengine-4.22\engine\source\editor\propertyeditor\public\SResetToDefaultMenu.h
+E:\SelfSpace\UnrealEngine-4.22\Engine\Source\Editor\ActorPickerMode\Public\ActorPickerMode.h
+E:\SelfSpace\UnrealEngine-4.22\Engine\Source\Editor\SceneDepthPickerMode\Public\SceneDepthPickerMode.h
+E:\SelfSpace\UnrealEngine-4.22\Engine\Source\Runtime\SlateCore\Public\Widgets\Images\SImage.h
 E:\SelfSpace\EditorExtend\Plugins\DetailsTest\Source\DetailsTest\Private\StructVariable.cpp
 E:\SelfSpace\EditorExtend\Plugins\DetailsTest\Source\DetailsTest\Private\StructVariableDetail.cpp
-E:\SelfSpace\UnrealEngine-4.22\Engine\Source\Runtime\SlateCore\Public\Widgets\Images\SImage.h
+E:\SelfSpace\UnrealEngine-4.22\Engine\Source\Runtime\Slate\Public\Widgets\Input\SEditableTextBox.h
+E:\SelfSpace\UnrealEngine-4.22\Engine\Source\Runtime\Slate\Public\Widgets/Input/SEditableText.h
+E:\SelfSpace\UnrealEngine-4.22\Engine\Source\Runtime\Slate\Public\Widgets/Text/ISlateEditableTextWidget.h
