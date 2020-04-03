@@ -8,7 +8,16 @@ public class EditExtend01 : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
+		PublicDependencyModuleNames.AddRange(new string[] {
+            "Core",
+            "CoreUObject",
+            "Engine",
+            "InputCore",
+            "Slate",
+            "SlateCore",
+            "UMG",
+            "AssetsSlateUI"
+        });
 
 		PrivateDependencyModuleNames.AddRange(new string[] { "UnrealEd", "LevelEditor", "Analytics" });
 
