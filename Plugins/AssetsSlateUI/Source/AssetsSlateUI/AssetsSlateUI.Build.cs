@@ -41,6 +41,8 @@ public class AssetsSlateUI : ModuleRules
                 "UnrealEd",
                 "AssetsSlateData",
                 "AssetTools",
+                "InputCore",
+                "ProceduralMeshComponent",
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);

@@ -1,13 +1,15 @@
 #include "MyCustomAssetEditorToolkit.h"
 #include "Widgets\Images\SImage.h"
 #include "Toolkits\AssetEditorToolkit.h"
-
+#include "MyCustomAsset.h"
+#include "SCustomAssetViewport.h"
 
 #define LOCTEXT_NAMESPACE "CustomAssetEditor"
 
 namespace CustomAssetEditor
 {
-	static const FName AssetEditorID("CustomAssetID");
+	static const FName AssetEditorID("CustomAssetED");
+	static const FName CustomPanelID("CustomPanelED");
 
 };
 
@@ -19,7 +21,17 @@ void FMyCustomAssetEditorToolkit::RegisterTabSpawners(const TSharedRef<FTabManag
 	{
 		return SNew(SDockTab)
 			[
-				SNew(SImage)
+				SNew(SCustomAssetViewport)
+				.CustomAsset(MyCustomTextAsset)
+			];
+	}));
+	
+	InManager->RegisterTabSpawner(CustomAssetEditor::CustomPanelID, FOnSpawnTab::CreateLambda
+	([&](const FSpawnTabArgs &Args)
+	{
+		return SNew(SDockTab)
+			[
+				SNew(SImage)	
 			];
 	}));
 }
@@ -39,9 +51,14 @@ void FMyCustomAssetEditorToolkit::Initialize(UMyCustomAsset* InTextAsset, const 
 	const TSharedRef<FTabManager::FLayout> StandloneCustomLayout = FTabManager::NewLayout("StandloneCustomLayout_Layout")
 		->AddArea(
 			FTabManager::NewPrimaryArea()
+			->SetOrientation(Orient_Horizontal)
 			->Split(
 				FTabManager::NewStack()
 				->AddTab(CustomAssetEditor::AssetEditorID, ETabState::OpenedTab)
+			)
+			->Split(
+				FTabManager::NewStack()
+				->AddTab(CustomAssetEditor::CustomPanelID, ETabState::OpenedTab)
 			)
 		);
 	InitAssetEditor(
