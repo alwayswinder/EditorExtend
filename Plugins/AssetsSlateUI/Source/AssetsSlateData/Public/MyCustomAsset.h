@@ -14,10 +14,12 @@ class ASSETSSLATEDATA_API UMyCustomAsset : public UObject
 {
 	GENERATED_BODY()
 public:
-	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "MyDataAsset")
-	FText MyText;
-	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "MyDataAsset")
-	float MyFloat;
-	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "MyDataAsset")
-	int32 MyInt;
+	UMyCustomAsset();
+
+	void CreateBox();
+public:
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "CustomAsset")
+	TArray<FVector> Vertices;
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "CustomAsset")
+	TArray<int32> Triangles;
 };

@@ -43,6 +43,7 @@ public class AssetsSlateUI : ModuleRules
                 "AssetTools",
                 "InputCore",
                 "ProceduralMeshComponent",
+                "PropertyEditor",
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);

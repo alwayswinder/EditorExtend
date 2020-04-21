@@ -3,6 +3,7 @@
 #include "Toolkits\AssetEditorToolkit.h"
 #include "MyCustomAsset.h"
 #include "SCustomAssetViewport.h"
+#include "CustomDataAttribute.h"
 
 #define LOCTEXT_NAMESPACE "CustomAssetEditor"
 
@@ -31,7 +32,8 @@ void FMyCustomAssetEditorToolkit::RegisterTabSpawners(const TSharedRef<FTabManag
 	{
 		return SNew(SDockTab)
 			[
-				SNew(SImage)	
+				SNew(SCustomDataAttribute)
+				.CustomAsset(MyCustomTextAsset)
 			];
 	}));
 }
