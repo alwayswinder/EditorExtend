@@ -11,8 +11,11 @@ public:
 
 public:
 	void Construct(const FArguments& InArgs);
+	~SCustomAssetViewport();
 	virtual TSharedRef<FEditorViewportClient> MakeEditorViewportClient()override;
 	
 private:
 	class UMyCustomAsset* CustomAsset;
+	TSharedPtr<class FAdvancedPreviewScene> PreviewScene;
+	TSharedPtr<class FCustomAssetViewportClient> EditorVIewportClient;
 };

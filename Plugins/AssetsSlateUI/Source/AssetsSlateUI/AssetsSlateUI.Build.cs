@@ -44,6 +44,7 @@ public class AssetsSlateUI : ModuleRules
                 "InputCore",
                 "ProceduralMeshComponent",
                 "PropertyEditor",
+                "AdvancedPreviewScene"
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);

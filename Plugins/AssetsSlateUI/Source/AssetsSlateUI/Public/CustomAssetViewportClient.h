@@ -3,16 +3,14 @@
 #include "MyCustomAsset.h"
 
 
-class FCustomAssetViewportClient : public FEditorViewportClient
+class FCustomAssetViewportClient : public FEditorViewportClient, public TSharedFromThis<FCustomAssetViewportClient>
 {
 public:
-	FCustomAssetViewportClient();
+	FCustomAssetViewportClient(FPreviewScene& InPreviewScene, UMyCustomAsset* InCustomAsset,
+		const TWeakPtr<class SEditorViewport> &InEditorViewportWidget = nullptr);
 	virtual void Tick(float DeltaSeconds)override;
-	void SetCustomAsset(UMyCustomAsset* NewCustomAsset) { CustomAsset = NewCustomAsset; }
-
+	
 private:
-	FPreviewScene DrawScene;
 	UMyCustomAsset* CustomAsset;
-
 	class UProceduralMeshComponent* ProceduralMeshComponent;
 };
