@@ -1,7 +1,7 @@
 #pragma once
 #include "SCompoundWidget.h"
 
-class SCustomDataAttribute : public SCompoundWidget
+class ASSETSSLATEUI_API SCustomDataAttribute : public SCompoundWidget
 {
 public:
 	SLATE_BEGIN_ARGS(SCustomDataAttribute){}

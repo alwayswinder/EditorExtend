@@ -17,6 +17,40 @@ FCustomAssetViewportClient::FCustomAssetViewportClient(FPreviewScene& InPreviewS
 
 	ProceduralMeshComponent = NewObject<UProceduralMeshComponent>(PreviewScene->GetWorld(), TEXT("PreviewMesh"));
 	PreviewScene->AddComponent(ProceduralMeshComponent, FTransform::Identity);
+	OnPropertyChanged();
+}
+
+void FCustomAssetViewportClient::Tick(float DeltaSeconds)
+{
+	FEditorViewportClient::Tick(DeltaSeconds);
+
+	if (CustomAsset)
+	{
+		if (CustomAsset->Vertices.Num() != CustomAssetCache.VerticesNum ||
+			CustomAsset->Triangles.Num() != CustomAssetCache.TrianglesNum)
+		{
+			CustomAssetCache.VerticesNum = CustomAsset->Vertices.Num();
+			CustomAssetCache.TrianglesNum = CustomAsset->Triangles.Num();
+			OnPropertyChanged();
+		}
+		else
+		{
+			if (ProceduralMeshComponent)
+			{
+				TArray<FVector> Normals;
+				TArray<FVector2D> UV0;
+				TArray<FColor> VertexColors;
+				TArray<FProcMeshTangent> Tangents;
+
+				ProceduralMeshComponent->UpdateMeshSection(0, CustomAsset->Vertices, Normals, UV0, VertexColors, Tangents);
+			}
+		}
+	}
+	PreviewScene->GetWorld()->Tick(LEVELTICK_All, DeltaSeconds);
+}
+
+void FCustomAssetViewportClient::OnPropertyChanged()
+{
 	if (CustomAsset)
 	{
 		TArray<FVector> Normals;
@@ -27,21 +61,5 @@ FCustomAssetViewportClient::FCustomAssetViewportClient(FPreviewScene& InPreviewS
 		ProceduralMeshComponent->CreateMeshSection(0, CustomAsset->Vertices, CustomAsset->Triangles, Normals, UV0,
 			VertexColors, Tangents, false);
 	}
-
-}
-
-void FCustomAssetViewportClient::Tick(float DeltaSeconds)
-{
-	FEditorViewportClient::Tick(DeltaSeconds);
-	if (CustomAsset)
-	{
-		TArray<FVector> Normals;
-		TArray<FVector2D> UV0;
-		TArray<FColor> VertexColors;
-		TArray<FProcMeshTangent> Tangents;
-
-		ProceduralMeshComponent->UpdateMeshSection(0, CustomAsset->Vertices, Normals, UV0, VertexColors, Tangents);
-	}
-	PreviewScene->GetWorld()->Tick(LEVELTICK_All, DeltaSeconds);
 }
 

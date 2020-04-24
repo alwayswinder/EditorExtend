@@ -3,6 +3,8 @@
 #include "AssetsSlateUI.h"
 #include "MyCustomAssetActions.h"
 #include "AssetToolsModule.h"
+#include "PropertyEditorModule.h"
+#include "MeshImportPanel.h"
 
 #define LOCTEXT_NAMESPACE "FAssetsSlateUIModule"
 
@@ -10,10 +12,15 @@ void FAssetsSlateUIModule::StartupModule()
 {
 	// This code will execute after your module is loaded into memory; the exact timing is specified in the .uplugin file per-module
 	IAssetTools& AssetTools = FModuleManager::LoadModuleChecked<FAssetToolsModule>("AssetTools").Get();
-	
 	RegisterAssetTypeActions.Add(MakeShareable(new FMyCustomAssetAction()));
 	AssetTools.RegisterAssetTypeActions(RegisterAssetTypeActions[RegisterAssetTypeActions.Num()-1]);
+
+	FPropertyEditorModule &PropertyModule = FModuleManager::GetModuleChecked<FPropertyEditorModule>("PropertyEditor");
+	RegisterPropertyTypeCustomizations();
+	PropertyModule.NotifyCustomizationModuleChanged();
+
 }
+
 
 void FAssetsSlateUIModule::ShutdownModule()
 {
@@ -28,6 +35,24 @@ void FAssetsSlateUIModule::ShutdownModule()
 			AssetTools.UnregisterAssetTypeActions(Action);
 		}
 	}
+}
+
+
+void FAssetsSlateUIModule::RegisterPropertyTypeCustomizations()
+{
+	RegisterCustomPropertyTypeLayout("MeshImport",
+		FOnGetPropertyTypeCustomizationInstance::CreateStatic(&FMeshImportDetail::MakeInstance));
+}
+
+
+void FAssetsSlateUIModule::RegisterCustomPropertyTypeLayout(FName PropertyTypeName, 
+	FOnGetPropertyTypeCustomizationInstance PropertyTypeLayoutDelegate)
+{
+	check(PropertyTypeName != NAME_None);
+	RegisteredPropertyTypes.Add(PropertyTypeName);
+
+	FPropertyEditorModule& PropertyModule = FModuleManager::GetModuleChecked<FPropertyEditorModule>("PropertyEditor");
+	PropertyModule.RegisterCustomPropertyTypeLayout(PropertyTypeName, PropertyTypeLayoutDelegate);
 }
 
 #undef LOCTEXT_NAMESPACE

@@ -40,3 +40,9 @@ void UMyCustomAsset::CreateBox()
 
 
 }
+
+void UMyCustomAsset::ClearMeshData()
+{
+	Vertices.Empty();
+	Triangles.Empty();
+}

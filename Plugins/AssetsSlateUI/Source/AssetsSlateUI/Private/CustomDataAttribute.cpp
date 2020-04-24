@@ -1,6 +1,9 @@
 #include "CustomDataAttribute.h"
 #include "PropertyEditorModule.h"
 
+extern ASSETSSLATEUI_API TWeakObjectPtr<UMyCustomAsset> CustomAssetInstance;
+
+
 void SCustomDataAttribute::Construct(const FArguments& InArgs)
 {
 	CustomAsset = InArgs._CustomAsset.Get();
@@ -9,6 +12,7 @@ void SCustomDataAttribute::Construct(const FArguments& InArgs)
 	FDetailsViewArgs DetailsViewArgs;
 	ConfigPanel = PropertyModule.CreateDetailView(DetailsViewArgs);
 	ConfigPanel->SetObject(CustomAsset);
+	CustomAssetInstance = CustomAsset;
 	ChildSlot
 	[
 		SNew(SVerticalBox)
