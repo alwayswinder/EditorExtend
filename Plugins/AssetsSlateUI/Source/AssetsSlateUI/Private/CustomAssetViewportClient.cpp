@@ -6,7 +6,6 @@ FCustomAssetViewportClient::FCustomAssetViewportClient(FPreviewScene& InPreviewS
 	const TWeakPtr<class SEditorViewport> &InEditorViewportWidget)
 	:FEditorViewportClient(NULL, &InPreviewScene, InEditorViewportWidget)
 	,CustomAsset(InCustomAsset)
-	,ProceduralMeshComponent(nullptr)
 {
 	((FAssetEditorModeManager*)ModeTools)->SetPreviewScene(PreviewScene);
 	DrawHelper.bDrawGrid = true;
@@ -15,8 +14,7 @@ FCustomAssetViewportClient::FCustomAssetViewportClient(FPreviewScene& InPreviewS
 	SetViewMode(VMI_Lit);
 	SetViewLocation(FVector(500, 300, 500));
 
-	ProceduralMeshComponent = NewObject<UProceduralMeshComponent>(PreviewScene->GetWorld(), TEXT("PreviewMesh"));
-	PreviewScene->AddComponent(ProceduralMeshComponent, FTransform::Identity);
+	CreateMeshLOD();
 	OnPropertyChanged();
 }
 
@@ -26,23 +24,32 @@ void FCustomAssetViewportClient::Tick(float DeltaSeconds)
 
 	if (CustomAsset)
 	{
-		if (CustomAsset->Vertices.Num() != CustomAssetCache.VerticesNum ||
-			CustomAsset->Triangles.Num() != CustomAssetCache.TrianglesNum)
+		if (CustomAsset->IsModify())
 		{
-			CustomAssetCache.VerticesNum = CustomAsset->Vertices.Num();
-			CustomAssetCache.TrianglesNum = CustomAsset->Triangles.Num();
 			OnPropertyChanged();
 		}
-		else
+		else 
 		{
-			if (ProceduralMeshComponent)
+			for (int32 LOD = 0; LOD < CustomAsset->MeshData.Num(); LOD++)
 			{
-				TArray<FVector> Normals;
-				TArray<FVector2D> UV0;
-				TArray<FColor> VertexColors;
-				TArray<FProcMeshTangent> Tangents;
-
-				ProceduralMeshComponent->UpdateMeshSection(0, CustomAsset->Vertices, Normals, UV0, VertexColors, Tangents);
+				for (int32 Section = 0; Section < CustomAsset->MeshData[LOD].MeshLOD.Num(); Section++)
+				{
+					if (ProceduralMesh.IsValidIndex(LOD))
+					{
+						TArray<FColor> VertexColors;
+						ProceduralMesh[LOD]->UpdateMeshSection(
+							Section,
+							CustomAsset->MeshData[LOD].MeshLOD[Section].Vertices,
+							CustomAsset->MeshData[LOD].MeshLOD[Section].Normals,
+							CustomAsset->MeshData[LOD].MeshLOD[Section].UV0,
+							VertexColors,
+							CustomAsset->MeshData[LOD].MeshLOD[Section].Tangents);
+					}
+					else
+					{
+						OnPropertyChanged();
+					}
+				}
 			}
 		}
 	}
@@ -53,13 +60,55 @@ void FCustomAssetViewportClient::OnPropertyChanged()
 {
 	if (CustomAsset)
 	{
-		TArray<FVector> Normals;
-		TArray<FVector2D> UV0;
-		TArray<FColor> VertexColors;
-		TArray<FProcMeshTangent> Tangents;
-
-		ProceduralMeshComponent->CreateMeshSection(0, CustomAsset->Vertices, CustomAsset->Triangles, Normals, UV0,
-			VertexColors, Tangents, false);
+		for (int32 LOD = 0; LOD < CustomAsset->MeshData.Num(); LOD++)
+		{
+			for (int32 Section = 0; Section < CustomAsset->MeshData[LOD].MeshLOD.Num(); Section++)
+			{
+				if (ProceduralMesh.IsValidIndex(LOD))
+				{
+					TArray<FColor> VertexColors;
+					ProceduralMesh[LOD]->CreateMeshSection(
+						Section,
+						CustomAsset->MeshData[LOD].MeshLOD[Section].Vertices,
+						CustomAsset->MeshData[LOD].MeshLOD[Section].Triangles,
+						CustomAsset->MeshData[LOD].MeshLOD[Section].Normals,
+						CustomAsset->MeshData[LOD].MeshLOD[Section].UV0,
+						VertexColors,
+						CustomAsset->MeshData[LOD].MeshLOD[Section].Tangents,
+						false);
+				}
+				else
+				{
+					if (CreateMeshLOD((LOD + 1) - ProceduralMesh.Num()))
+					{
+						TArray<FColor> VertexColors;
+						ProceduralMesh[LOD]->CreateMeshSection(
+							Section,
+							CustomAsset->MeshData[LOD].MeshLOD[Section].Vertices,
+							CustomAsset->MeshData[LOD].MeshLOD[Section].Triangles,
+							CustomAsset->MeshData[LOD].MeshLOD[Section].Normals,
+							CustomAsset->MeshData[LOD].MeshLOD[Section].UV0,
+							VertexColors,
+							CustomAsset->MeshData[LOD].MeshLOD[Section].Tangents,
+							false);
+					}
+				}
+			}
+		}
 	}
+}
+
+bool FCustomAssetViewportClient::CreateMeshLOD(int32 LODNum)
+{
+	bool CreateSucess = false;
+	for (int32 i = 0; i < LODNum; i++)
+	{
+		UProceduralMeshComponent *ProceduralMeshComponent = NewObject<UProceduralMeshComponent>(PreviewScene->GetWorld(),
+			TEXT("PreviewMesh"));
+		PreviewScene->AddComponent(ProceduralMeshComponent, FTransform::Identity);
+		ProceduralMesh.Add(ProceduralMeshComponent);
+		CreateSucess = true;
+	}
+	return CreateSucess;
 }
 

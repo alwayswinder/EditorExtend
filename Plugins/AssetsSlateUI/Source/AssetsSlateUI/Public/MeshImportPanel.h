@@ -14,7 +14,10 @@ public:
 		IPropertyTypeCustomizationUtils& CustomizationUtils)override;
 	static TSharedRef<IPropertyTypeCustomization> MakeInstance();
 private:
+	void OnLabelsRootTextCommited(const FText& InText, ETextCommit::Type InCommitType)const;
+private:
 	FReply HandleImportClicked();
 
-
+	TSharedPtr<IPropertyHandle> HandleMeshSavePaths;
+	TSharedPtr<class SEditableTextBox> EditableTextBox;
 };

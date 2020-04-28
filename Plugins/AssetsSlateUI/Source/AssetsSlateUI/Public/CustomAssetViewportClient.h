@@ -5,26 +5,17 @@
 
 class FCustomAssetViewportClient : public FEditorViewportClient, public TSharedFromThis<FCustomAssetViewportClient>
 {
-	struct FCustomAssetCache
-	{
-		int32 VerticesNum;
-		int32 TrianglesNum;
-
-		FCustomAssetCache()
-			:VerticesNum(0)
-			, TrianglesNum(0)
-		{
-
-		}
-	};
+	
 
 public:
 	FCustomAssetViewportClient(FPreviewScene& InPreviewScene, UMyCustomAsset* InCustomAsset,
 		const TWeakPtr<class SEditorViewport> &InEditorViewportWidget = nullptr);
 	virtual void Tick(float DeltaSeconds)override;
 	void OnPropertyChanged();
+	bool CreateMeshLOD(int32 LODNum = 1);
+
 private:
 	UMyCustomAsset* CustomAsset;
-	class UProceduralMeshComponent* ProceduralMeshComponent;
+	TArray<UProceduralMeshComponent*> ProceduralMesh;
 	FCustomAssetCache CustomAssetCache;
 };

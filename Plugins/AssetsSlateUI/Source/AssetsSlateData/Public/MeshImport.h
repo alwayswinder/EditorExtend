@@ -7,6 +7,6 @@ struct FMeshImport
 {
 	GENERATED_USTRUCT_BODY()
 
-	UPROPERTY()
+	UPROPERTY(EditAnywhere, Category = "MeshSavePaths")
 	FText MeshSavePaths;
 };
