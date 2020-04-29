@@ -76,6 +76,10 @@ void FCustomAssetViewportClient::OnPropertyChanged()
 						VertexColors,
 						CustomAsset->MeshData[LOD].MeshLOD[Section].Tangents,
 						false);
+					if (CustomAsset->MaterialInterface != nullptr)
+					{
+						ProceduralMesh[LOD]->SetMaterial(0, CustomAsset->MaterialInterface);
+					}
 				}
 				else
 				{
@@ -91,6 +95,10 @@ void FCustomAssetViewportClient::OnPropertyChanged()
 							VertexColors,
 							CustomAsset->MeshData[LOD].MeshLOD[Section].Tangents,
 							false);
+						if (CustomAsset->MaterialInterface != nullptr)
+						{
+							ProceduralMesh[LOD]->SetMaterial(0, CustomAsset->MaterialInterface);
+						}
 					}
 				}
 			}

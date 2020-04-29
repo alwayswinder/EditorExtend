@@ -11,13 +11,19 @@
 
 struct FCustomAssetCache
 {
-	TArray<int32> VerticesNum;
-	TArray<int32> TrianglesNum;
-	TArray<int32> NormalsNum ;
-	TArray<int32> UV0Num;
-	TArray<int32> TangentsNum;
+	int32 VerticesNum;
+	int32 TrianglesNum;
+	int32 NormalsNum ;
+	int32 UV0Num;
+	int32 TangentsNum;
+	UMaterialInterface *MaterialInterface;
 
 	FCustomAssetCache()
+		:VerticesNum(0)
+		,TrianglesNum(0)
+		,NormalsNum(0)
+		,UV0Num(0)
+		,TangentsNum(0)
 	{}
 };
 USTRUCT(BlueprintType)
@@ -64,9 +70,11 @@ class ASSETSSLATEDATA_API UMyCustomAsset : public UObject
 public:
 	UMyCustomAsset();
 	void CreateBox();
-	void ClearMeshData();
 
 	bool IsModify();
+#if WITH_EDITOR
+	virtual void PostEditChangeProperty(struct FPropertyChangedEvent& PropertyChangedEvent)override;
+#endif
 
 public:
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "CustomAsset")
@@ -74,6 +82,10 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "CustomAsset")
 	FMeshImport MeshImport;
+
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "CustomAsset")
+	UMaterialInterface *MaterialInterface;
+
 private: 
 	FCustomAssetCache CustomAssetCache;
 };

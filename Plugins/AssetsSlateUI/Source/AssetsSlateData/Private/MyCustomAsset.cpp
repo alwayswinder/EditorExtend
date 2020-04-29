@@ -3,17 +3,23 @@
 #include "MyCustomAsset.h"
 
 #define CHECK_MESH(VariableName)\
-if(Section.VariableName.Num()!= CustomAssetCache.VariableName##Num)\
+if (MeshData.Num() > 0 && MeshData[0].MeshLOD.Num() > 0)\
+{\
+	if (MeshData[0].MeshLOD[0].VariableName.Num() != CustomAssetCache.VariableName##Num)\
+	{\
+		bIsModify = true;\
+		CustomAssetCache.VariableName##Num = MeshData[0].MeshLOD[0].VariableName.Num();\
+	}\
+}\
+else if (CustomAssetCache.VariableName##Num != 0)\
 {\
 	bIsModify = true;\
-	CustomAssetCache.VariableName##Num = Section.VariableName.Num();\
+	CustomAssetCache.VariableName##Num = 0;\
 }
+
 
 UMyCustomAsset::UMyCustomAsset()
-{
-
-	CreateBox();
-}
+{}
 
 void UMyCustomAsset::CreateBox()
 {
@@ -45,48 +51,31 @@ void UMyCustomAsset::CreateBox()
 	Triangles.Add(1); Triangles.Add(3); Triangles.Add(2);
 	Triangles.Add(1); Triangles.Add(0); Triangles.Add(3);
 	*/
-
 }
 
-void UMyCustomAsset::ClearMeshData()
-{
-	/*
-	Vertices.Empty();
-	Triangles.Empty();
-	*/
-}
+
 
 bool UMyCustomAsset::IsModify()
 {
 	bool bIsModify = false;
-
-	for (int32 Lod = 0; Lod < MeshData.Num(); Lod++)
+	CHECK_MESH(Vertices)
+	CHECK_MESH(Triangles)
+	CHECK_MESH(Normals)
+	CHECK_MESH(UV0)
+	CHECK_MESH(Tangents)
+	if (MaterialInterface)
 	{
-		for (FCustomMeshSection &Section : MeshData[Lod].MeshLOD)
+		if (CustomAssetCache.MaterialInterface != MaterialInterface)
 		{
-			/*
-			CHECK_MESH(Vertices)
-			CHECK_MESH(Triangles)
-			CHECK_MESH(Normals)
-			CHECK_MESH(UV0)
-			CHECK_MESH(Tangents)*/
-			if (CustomAssetCache.VerticesNum.IsValidIndex(Lod))
-			{
-				if (Section.Vertices.Num() != CustomAssetCache.VerticesNum[Lod])
-				{
-					bIsModify = true;
-					CustomAssetCache.VerticesNum[Lod] = Section.Vertices.Num();
-					FString log = FString::FromInt(Section.Vertices.Num());
-					UE_LOG(LogTemp, Warning, TEXT("Section num = %d"), Section.Vertices.Num());
-				}
-			}
-			else
-			{
-				bIsModify = true;
-				CustomAssetCache.VerticesNum.Add(Section.Vertices.Num());
-			}
-			
+			bIsModify = true;
+			CustomAssetCache, MaterialInterface = MaterialInterface;
 		}
 	}
 	return bIsModify;
 }
+#if WITH_EDITOR
+void UMyCustomAsset::PostEditChangeProperty(struct FPropertyChangedEvent& PropertyChangedEvent)
+{
+	Super::PostEditChangeProperty(PropertyChangedEvent);
+}
+#endif
