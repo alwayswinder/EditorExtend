@@ -6,13 +6,20 @@
 #include "Widgets/Input/SButton.h"
 #include "Widgets/Text/STextBlock.h"
 #include "EditorModeManager.h"
-
+#include "Components\BrushComponent.h"
+#include "Components\SkinnedMeshComponent.h"
+#include "Rendering\SkeletalMeshRenderData.h"
+#include "Engine\Polys.h"
+#include "UnrealEdGlobals.h"
+#include "Editor\UnrealEdEngine.h"
 #define LOCTEXT_NAMESPACE "FModeEditorTestEdModeToolkit"
 
 namespace LocalNode
 {
-	static FText LeftFaceBehindTopID = LOCTEXT("LeftFaceBehindTopID", "left face behind top point");
-	static FText RightFaceBehindTopID = LOCTEXT("RightFaceBehindTopID", "right face behind top point");
+	static FText FarLeftID = LOCTEXT("FarLeftID", "Far Left point");
+	static FText FarRightID = LOCTEXT("FarRightID", "Far Right Point");
+	static FText FarTopID = LOCTEXT("FarTopID", "Far Top point");
+	static FText FarDownID = LOCTEXT("FarDownID", "Far Down Point");
 }
 
 FModeEditorTestEdModeToolkit::FModeEditorTestEdModeToolkit()
@@ -55,17 +62,31 @@ void FModeEditorTestEdModeToolkit::Init(const TSharedPtr<IToolkitHost>& InitTool
 
 		static FReply OnCenterPointButtonClick(FText InID)
 		{
-
 			GEngine->AddOnScreenDebugMessage(0, 2.0f, FColor::Green, InID.ToString());
 			if (GEditor->GetSelectedActorCount() <= 0)
 			{
 				return FReply::Unhandled();
 			}
 			const FScopedTransaction Transaction(LOCTEXT("ActorsPivotChange", "Actors Pivot Change"));
+			for (FSelectionIterator It(GEditor->GetSelectedActorIterator()); It; ++It)
+			{
+				AActor *MyActor = static_cast<AActor*>(*It);
+				FVector PivoPoint = GetSelectActorPivot(MyActor, InID);
+
+				FVector Delta(PivoPoint - MyActor->GetActorLocation());
+				PivoPoint = MyActor->GetTransform().InverseTransformVector(Delta);
+
+				if (MyActor->GetPivotOffset() != PivoPoint)
+				{
+					MyActor->Modify();
+					MyActor->SetPivotOffset(PivoPoint);
+				}
+			}
+			GUnrealEd->NoteSelectionChange();
 
 			return FReply::Handled();
 		}
-		static FVector GetSelectActorPivot(AActor* Actor, const FText *ID)
+		static FVector GetSelectActorPivot(AActor* Actor, FText ID)
 		{
 			if (FMath::IsNearlyZero(Actor->GetComponentsBoundingBox().GetVolume(), KINDA_SMALL_NUMBER))
 			{
@@ -77,8 +98,44 @@ void FModeEditorTestEdModeToolkit::Init(const TSharedPtr<IToolkitHost>& InitTool
 			TArray<UPrimitiveComponent*> ValidComponent;
 			GetValidComponent(Actor, ValidComponent);
 
-
+			FBox MyBound(EForceInit::ForceInitToZero);
+			if (ValidComponent.Num() == 1 &&
+				Actor->GetRootComponent() == ValidComponent[0] &&
+				GetComponentBox(ValidComponent[0], MyBound))
+			{
+				Point = ActorTransform.TransformPosition(GetMyBoundingBoxPoint(MyBound, ID));
+			}
+			return Point;
 		}
+		static FVector GetMyBoundingBoxPoint(const FBox& InBoundingBox, FText ID)
+		{
+			FVector  Result = FVector::ZeroVector;
+			FVector Origin = InBoundingBox.GetCenter();
+			FVector Extent = InBoundingBox.GetExtent();
+			FVector Offset = FVector::ZeroVector;
+			if (ID.ToString() == (LocalNode::FarTopID).ToString())
+			{
+				Offset = FVector(0, 0, Extent.Z);
+			}
+			else if (ID.ToString() == (LocalNode::FarDownID).ToString())
+			{
+				Offset = FVector(0, 0, Extent.Z * -1);
+			}
+			else if (ID.ToString() == (LocalNode::FarLeftID).ToString())
+			{
+				Offset = FVector(Extent.X, 0, 0);
+			}
+			else if (ID.ToString() == (LocalNode::FarRightID).ToString())
+			{
+				Offset = FVector(Extent.X * -1, 0, 0);
+			}
+	
+
+			Result = Origin + Offset;
+
+			return Result;
+		}
+
 		static bool GetComponentBox(UPrimitiveComponent* InComponent, FBox& OutBox)
 		{
 			bool bBox = false;
@@ -221,18 +278,36 @@ void FModeEditorTestEdModeToolkit::Init(const TSharedPtr<IToolkitHost>& InitTool
 				[
 					Locals::MakeButton(LOCTEXT("DownButtonLabel", "Down"), FVector(0, 0, -Factor))
 				]
+
 			+ SVerticalBox::Slot()
 				.HAlign(HAlign_Center)
 				.AutoHeight()
 				[
-					Locals::MakeCenterPointButton(LocalNode::LeftFaceBehindTopID)
+					Locals::MakeCenterPointButton(LocalNode::FarTopID)
 				]
 			+ SVerticalBox::Slot()
 				.HAlign(HAlign_Center)
 				.AutoHeight()
 				[
-					Locals::MakeCenterPointButton(LocalNode::RightFaceBehindTopID)
+					SNew(SHorizontalBox)
+					+ SHorizontalBox::Slot()
+				.AutoWidth()
+				[
+					Locals::MakeCenterPointButton(LocalNode::FarLeftID)
 				]
+			+ SHorizontalBox::Slot()
+				.AutoWidth()
+				[
+					Locals::MakeCenterPointButton(LocalNode::FarRightID)
+				]
+				]
+			+ SVerticalBox::Slot()
+				.HAlign(HAlign_Center)
+				.AutoHeight()
+				[
+					Locals::MakeCenterPointButton(LocalNode::FarDownID)
+				]
+			
 
 		];
 		
